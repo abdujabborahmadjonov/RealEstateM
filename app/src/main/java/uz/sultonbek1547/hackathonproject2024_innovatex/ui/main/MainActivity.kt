@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigationBar() {
-        val navController = findNavController(R.id.main_navigation)
+        val navController = findNavController(R.id.my_nav_host)
 
         binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
