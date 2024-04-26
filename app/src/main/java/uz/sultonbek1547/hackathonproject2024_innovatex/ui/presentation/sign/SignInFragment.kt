@@ -1,10 +1,12 @@
 package uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.sign
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.FirebaseApp
@@ -22,6 +24,7 @@ import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectionDi
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectivityManager
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.Constants
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.MyCustomSnackBar
+import uz.sultonbek1547.hackathonproject2024_innovatex.ui.main.MainActivity
 
 
 class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
@@ -111,12 +114,19 @@ class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
 
                 else -> {
 
-
-
+                    var status = true
                     listOfUsers.forEach {
-                        if (it.number ==  phoneNumber && it.password == password){
+                        if (it.number == phoneNumber && it.password == password) {
                             // correct move to MainActivity
+                            startActivity(Intent(context, MainActivity::class.java).apply {
+                                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            })
+
+                            status = false
                         }
+                    }
+                    if (status){
+                        Toast.makeText(context, "Parol yoki nomer xato", Toast.LENGTH_SHORT).show()
                     }
 
                 }
