@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/exploreFragment">
+
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.bottom_nav_fragments.ExploreFragment"
+        android:label="fragment_explore"
+        tools:layout="@layout/fragment_explore" />
+    <fragment
+        android:id="@+id/chatsFragment"
+        android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.bottom_nav_fragments.ChatsFragment"
+        android:label="fragment_chats"
+        tools:layout="@layout/fragment_chats" />
+    <fragment
+        android:id="@+id/myBooksFragment"
+        android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.bottom_nav_fragments.MyBooksFragment"
+        android:label="fragment_my_books"
+        tools:layout="@layout/fragment_my_books" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.bottom_nav_fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
