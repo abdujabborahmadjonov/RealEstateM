@@ -9,10 +9,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import uz.sultonbek1547.hackathonproject2024_innovatex.R
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.FragmentSignInBinding
 import uz.sultonbek1547.hackathonproject2024_innovatex.models.ModelLoginAndPassWord
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectionDialog
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectivityManager
+import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.Constants
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.MyCustomSnackBar
 
 

@@ -19,8 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="dev.abdujabbor.modeltest.screens.sign.SignUpFragment"
-        android:label="SignUpFragment" />
+        android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.sign.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_signUpTwoFragment"
+            app:destination="@id/signUpTwoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signUpTwoFragment"
         android:name="dev.abdujabbor.modeltest.screens.sign.SignUpTwoFragment"

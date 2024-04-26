@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import uz.sultonbek1547.hackathonproject2024_innovatex.R
 
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.FragmentSignUpBinding
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectionDialog

@@ -1,4 +1,4 @@
-package dev.abdujabbor.modeltest.screens.sign
+package uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.sign
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,11 +9,12 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
-import dev.abdujabbor.modeltest.R
-import dev.abdujabbor.modeltest.constants.ConnectionDialog
-import dev.abdujabbor.modeltest.constants.ConnectivityManager
-import dev.abdujabbor.modeltest.constants.Constants
-import dev.abdujabbor.modeltest.databinding.FragmentSignUpTwoBinding
+import uz.sultonbek1547.hackathonproject2024_innovatex.R
+import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.FragmentSignUpTwoBinding
+import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectionDialog
+import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectivityManager
+import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.Constants
+
 
 class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
 
