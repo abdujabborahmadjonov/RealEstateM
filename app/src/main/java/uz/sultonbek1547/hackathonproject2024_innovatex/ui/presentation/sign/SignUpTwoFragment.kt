@@ -1,20 +1,30 @@
 package uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.sign
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.firestore.auth.User
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import uz.sultonbek1547.hackathonproject2024_innovatex.R
+import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyFirebaseService
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.FragmentSignUpTwoBinding
+import uz.sultonbek1547.hackathonproject2024_innovatex.models.User
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectionDialog
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectivityManager
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.Constants
+import uz.sultonbek1547.hackathonproject2024_innovatex.ui.main.MainActivity
+import uz.sultonbek1547.hackathonproject2024_innovatex.utils.MySharedPreference
 
 
 class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
@@ -54,10 +64,10 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
             val age = binding.etBrithDate.selectedItem.toString()
             val address = binding.selectedRegionTv.text.toString()
             var gen = ""
-            if (genIsMan) {
-                gen = "erkak"
+            gen = if (genIsMan) {
+                "erkak"
             } else {
-                gen = "ayol"
+                "ayol"
             }
 
             val user = uz.sultonbek1547.hackathonproject2024_innovatex.models.User(
@@ -72,12 +82,16 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
                 address,
                 email
             )
+
+            addUser(user)
+
         }
+
+
         binding.signUpGenManBtn.setOnClickListener { selectGen(true) }
 
         binding.signUpGenGirlBtn.setOnClickListener { selectGen(false) }
 
-        var age: Int? = null
         binding.signUpOneNextBtn.setOnClickListener {
 
 
@@ -172,5 +186,23 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
         return filledInformation
     }
 
+    private fun addUser(user: User) = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            MyFirebaseService().postUser(user)
+            withContext(Dispatchers.Main) {
+                activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+                Toast.makeText(context, "Xush kelibsiz", Toast.LENGTH_LONG).show()
+                MySharedPreference.isUserAuthenticated = true
+                startActivity(Intent(requireContext(), MainActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                })
+            }
+
+        } catch (e: Exception) {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(context, "${e.message}", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
 
 }

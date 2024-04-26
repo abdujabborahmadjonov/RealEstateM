@@ -3,6 +3,7 @@ package uz.sultonbek1547.hackathonproject2024_innovatex.ui.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
 import uz.sultonbek1547.hackathonproject2024_innovatex.R
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.ActivityMainBinding
 import uz.sultonbek1547.hackathonproject2024_innovatex.utils.MySharedPreference
@@ -30,7 +31,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigationBar() {
+        val navController = findNavController(R.id.main_navigation)
 
+        binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.navigation_explore -> {
+                    navController.navigate(R.id.exploreFragment)
+                    true
+                }
+                R.id.navigation_chats -> {
+                    navController.navigate(R.id.chatsFragment)
+                    true
+                }
+                R.id.navigation_my_books -> {
+                    navController.navigate(R.id.myBooksFragment)
+                    true
+                }
+                R.id.navigation_profile -> {
+                    navController.navigate(R.id.profileFragment)
+                    true
+                }
+                else -> false
+            }
+        }
 
     }
 
