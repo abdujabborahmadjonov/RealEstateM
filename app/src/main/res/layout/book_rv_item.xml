@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="3dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/card_view"
+    android:backgroundTint="#a3c9a8"
+    android:foreground="?selectableItemBackground"
+    app:cardElevation="1dp"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="start">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:layout_height="130dp">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="5dp"
+                android:layout_marginEnd="10dp">
+
+                <ImageView
+                    android:id="@+id/item_image"
+                    android:layout_width="100dp"
+                    android:background="@color/gray_text_color"
+                    android:scaleType="fitXY"
+                    android:layout_height="match_parent" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:visibility="visible"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#a3c9a8"
+                    android:layout_height="wrap_content" />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <TextView
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/tv_book_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Graf Monte Kristo"
+                    android:layout_gravity="start"
+                    android:textSize="18sp"
+                    android:textColor="@color/orange_active"
+                    android:textStyle="bold" />
+
+                <TextView
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tv_book_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_book_name"
+                    android:id="@+id/tv_book_author"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:text="Aleksandr Dyuma"
+                    android:textColor="@color/gray_text_color"
+                    android:textSize="15sp" />
+
+                <TextView
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/tv_user_posted_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mart 21, 16:46"
+                    android:gravity="end"
+                    android:textSize="13sp"
+                    android:textColor="@color/gray_text_color" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.cardview.widget.CardView>

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.firestore.auth.User
 import uz.sultonbek1547.hackathonproject2024_innovatex.R
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.FragmentSignUpTwoBinding
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectionDialog
@@ -33,18 +34,45 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
         connectivityManager = ConnectivityManager(requireContext())
 
         val items = arrayOf(
-            "Home",
-            "Cars",
-            "Household applines",
-            "Rent with home",
-            "Others",
+            "10-20",
+            "30-40",
+            "50-60",
+            "60+",
 
-        )
+            )
 
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, items)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.etBrithDate.adapter = adapter
         binding.etBrithDate.setSelection(0)
+        if (filledInformation()) {
+            val name = binding.signUpFirstnameEt.text.toString()
+            val surname = binding.signUpLastnameEt.text.toString()
+            val number = Constants.number
+            val password = Constants.password
+            val email = Constants.email
+            val age = binding.etBrithDate.selectedItem.toString()
+            val address = binding.selectedRegionTv.text.toString()
+            var gen = ""
+            if (genIsMan) {
+                gen = "erkak"
+            } else {
+                gen = "ayol"
+            }
+
+            val user = uz.sultonbek1547.hackathonproject2024_innovatex.models.User(
+                "",
+                name,
+                surname,
+                number,
+                password,
+                age,
+                "",
+                gen,
+                address,
+                email
+            )
+        }
         binding.signUpGenManBtn.setOnClickListener { selectGen(true) }
 
         binding.signUpGenGirlBtn.setOnClickListener { selectGen(false) }

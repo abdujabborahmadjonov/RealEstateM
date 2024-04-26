@@ -38,6 +38,7 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
                 Snackbar.make(binding.root, "Good Job", 2000).show()
                 Constants.number = binding.signUpPhoneNumberEt.text.toString()
                 Constants.password = binding.signUpPasswordEt.text.toString()
+                Constants.email = binding.signUpEmailEt.text.toString()
                 findNavController().navigate(
                     R.id.action_signUpFragment_to_signUpTwoFragment
                 )
@@ -57,7 +58,6 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
 
         if (binding.signUpPhoneNumberEt.text.toString().replace("-", "").length ==
             binding.signUpPhoneNumberEt.text.trim().length &&
-            binding.codeReceiveGmailBtn.text.toString().isNotEmpty() &&
             binding.signUpEmailEt.text.toString().contains("@gmail.com") &&
             binding.signUpPasswordEt.text.length >= 8 &&
             binding.signUpPasswordEt.text.toString() == binding.signUpConfirmPasswordEt.toString()
@@ -103,7 +103,8 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
                 connectionDialog.showDialog(
                     "",
                     Constants.IS_NOT_CHECKED,
-                    "Parolingizni no'to'g'ri takrorladingiz!"
+                    "Paroli" +
+                            "ngizni no'to'g'ri takrorladingiz!"
                 )
             }
         }

@@ -4,13 +4,28 @@ import java.io.Serializable
 
 data class User(
     var id:String ="",
-    val status: String = "",
-    val classStatus: String = "",
     val name: String = "",
+    val surname: String = "",
     val number: String = "",
     val password: String = "",
+    val age: String = "",
+    val status: String = "",
+    val gender: String = "",
+    val address: String = "",
+    val email: String = "",
     val listOfChattedUsersId:ArrayList<String> = ArrayList()
 ): Serializable {
-    // No-argument constructor
-    constructor() : this("", "", "", "", "","",ArrayList())
+    constructor(): this(
+        id = "",
+        name = "",
+        surname = "",
+        number = "",
+        password = "",
+        age = "",
+        status = "",
+        gender = "",
+        address = "",
+        email = "",
+        listOfChattedUsersId = ArrayList()
+    )
 }

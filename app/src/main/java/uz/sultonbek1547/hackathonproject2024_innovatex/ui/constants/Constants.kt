@@ -8,4 +8,5 @@ object Constants {
     const val CONNECTIVITY_MANAGER = "TAG CONNECTIVITY MANAGER"
     var number:String = ""
     var password:String = ""
+    var email:String = ""
 }
