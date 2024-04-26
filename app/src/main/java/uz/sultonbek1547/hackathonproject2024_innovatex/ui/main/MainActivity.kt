@@ -15,7 +15,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
         MySharedPreference.init(this)
+
         // false means user have not logged in yet
         if (MySharedPreference.isUserAuthenticated != true) {
             startActivity(Intent(this, LoginActivity::class.java).apply {

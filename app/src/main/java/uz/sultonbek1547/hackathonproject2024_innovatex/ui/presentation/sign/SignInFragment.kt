@@ -1,6 +1,5 @@
 package uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.sign
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -11,7 +10,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.FirebaseApp
-import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.ktx.initialize
@@ -37,20 +35,17 @@ class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
     private lateinit var connectionDialog: ConnectionDialog
     private lateinit var connectivityManager: ConnectivityManager
     private lateinit var myCustomSnackBar: MyCustomSnackBar
+    private val usersCollectionRef = Firebase.firestore.collection("app_users")
     private var listOfUsers = ArrayList<User>()
-    lateinit var usersCollectionRef:CollectionReference
 
 
-    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        FirebaseApp.initializeApp(requireContext())
-         usersCollectionRef = Firebase.firestore.collection("app_users")
-
         connectionDialog = ConnectionDialog(requireContext(), this)
         connectivityManager = ConnectivityManager(requireContext())
+          FirebaseApp.initializeApp(requireContext())
         getUsers()
 
         binding.loginLogOnGuestBtn.setOnClickListener {

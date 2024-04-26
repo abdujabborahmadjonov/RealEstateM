@@ -32,7 +32,6 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
     val binding by lazy { FragmentSignUpTwoBinding.inflate(layoutInflater) }
     private lateinit var connectionDialog: ConnectionDialog
     private lateinit var connectivityManager: ConnectivityManager
-    private var isConnected = true
 
     var genIsMan = true
 
