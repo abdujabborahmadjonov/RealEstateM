@@ -24,5 +24,14 @@
         android:id="@+id/profileFragment"
         android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.bottom_nav_fragments.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_postFragment"
+            app:destination="@id/postFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.fragments.PostFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post" />
 </navigation>

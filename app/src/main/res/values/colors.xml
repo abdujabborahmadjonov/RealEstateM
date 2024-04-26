@@ -62,4 +62,15 @@
     <color name="yellow_bg_light">#fffde7</color>
     <color name="orange_bg_light">#fff3e0</color>
     <color name="grey_bg_light">#fafafa</color>
+
+    <color name="light_gray">#b9d8c2</color>
+    <color name="darker_gray">#99C59F</color>
+    <color name="blue">#2196F3</color>
+    <color name="dark_orange">#0b3948</color>
+    <color name="yellow">#0d1821</color>
+    <color name="light_dark_orange">#FFC107</color>
+    <color name="light_orange">#FFDB70</color>
+    <color name="gray">#3f5e5a</color>
+
+
 </resources>

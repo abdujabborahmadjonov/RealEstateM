@@ -29,6 +29,7 @@ import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.Connectivity
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.Constants
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.MyCustomSnackBar
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.main.MainActivity
+import uz.sultonbek1547.hackathonproject2024_innovatex.utils.MySharedPreference
 
 
 class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
@@ -56,19 +57,16 @@ class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
 
         MyFirebaseService().postUser(User())
 
-        binding.loginLogOnGuestBtn.setOnClickListener {
-            //
-        }
 
-        binding.loginForgotPasswordBtn.setOnClickListener {
 
-        }
+
 
         binding.loginSignUpBtn.setOnClickListener {
             findNavController().navigate(R.id.signUpFragment)
         }
 
         binding.loginSignInBtn.setOnClickListener {
+
 
 
             myCustomSnackBar = MyCustomSnackBar(it, layoutInflater)
@@ -127,6 +125,7 @@ class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
                     listOfUsers.forEach {
                         if (it.number == phoneNumber && it.password == password) {
                             // correct move to MainActivity
+                            MySharedPreference.isUserAuthenticated = true
                             startActivity(Intent(context, MainActivity::class.java).apply {
                                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             })
@@ -134,6 +133,7 @@ class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
                             status = false
                         }
                     }
+
                     if (status){
                         Toast.makeText(context, "Parol yoki nomer xato", Toast.LENGTH_SHORT).show()
                     }
