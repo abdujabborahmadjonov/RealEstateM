@@ -7,4 +7,59 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary2">#55001D</color>
+    <color name="colorPrimary">#7A008F</color>
+
+    <color name="colorPrimary8">#A01EB6</color>
+
+    <color name="main_background">#F6F7F8</color>
+    <color name="transparent">#00FFFFFF</color>
+
+    <color name="blue_color">#045AFD</color>
+    <color name="blue_color_50">#80045AFD</color>
+    <color name="green_color">#50D33B</color>
+    <color name="ripple_effect_color">#B7D0D1</color>
+    <color name="indicator_not_active_color">#33045AFD</color>
+    <color name="shadow_color">#0F045AFD</color>
+
+    <color name="black_text_color1">#262626</color>
+    <color name="black_text_color2">#1E1E1E</color>
+
+    <color name="light_btn">#F1F6F8</color>
+    <color name="gray_text_color">#C5C5C5</color>
+    <color name="gray_text_color2">#80262626</color>
+    <color name="not_active_gray">#E8E8E9</color>
+    <color name="bottom_icon_gray">#A7A7A7</color>
+    <color name="special_gray">#8A8888</color>
+
+    <color name="red_active">#f44336</color>
+    <color name="purple_active">#9c27b0</color>
+    <color name="blue_active">#03a9f4</color>
+    <color name="green_active">#50D33B</color>
+    <color name="green_submit_color">#68B16C</color>
+    <color name="blue_grey_active">#607d8b</color>
+    <color name="yellow_active">#ffeb3b</color>
+    <color name="orange_active">#ff8800</color>
+    <color name="grey_active">#9e9e9e</color>
+
+    <color name="red_inactive">#e57373</color>
+    <color name="purple_inactive">#ba68c8</color>
+    <color name="blue_inactive">#64b5f6</color>
+    <color name="green_inactive">#81c784</color>
+    <color name="blue_grey_inactive">#90a4ae</color>
+    <color name="yellow_inactive">#fff176</color>
+    <color name="orange_inactive">#ffb74d</color>
+    <color name="gery_inactive">#e0e0e0</color>
+
+    <color name="default_inactive">#78909c</color>
+
+    <color name="red_bg_light">#ffebee</color>
+    <color name="purple_bg_light">#f3e5f5</color>
+    <color name="blue_bg_light">#e3f2fd</color>
+    <color name="green_bg_light">#e8f5e9</color>
+    <color name="blue_grey_bg_light">#eceff1</color>
+    <color name="yellow_bg_light">#fffde7</color>
+    <color name="orange_bg_light">#fff3e0</color>
+    <color name="grey_bg_light">#fafafa</color>
 </resources>
