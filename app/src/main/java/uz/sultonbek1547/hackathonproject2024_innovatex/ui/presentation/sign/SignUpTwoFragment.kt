@@ -55,36 +55,40 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.etBrithDate.adapter = adapter
         binding.etBrithDate.setSelection(0)
-        if (filledInformation()) {
-            val name = binding.signUpFirstnameEt.text.toString()
-            val surname = binding.signUpLastnameEt.text.toString()
-            val number = Constants.number
-            val password = Constants.password
-            val email = Constants.email
-            val age = binding.etBrithDate.selectedItem.toString()
-            val address = binding.selectedRegionTv.text.toString()
-            var gen = ""
-            gen = if (genIsMan) {
-                "erkak"
-            } else {
-                "ayol"
+        binding.signUpOneNextBtn.setOnClickListener {
+
+
+            if (filledInformation()) {
+                val name = binding.signUpFirstnameEt.text.toString()
+                val surname = binding.signUpLastnameEt.text.toString()
+                val number = Constants.number
+                val password = Constants.password
+                val email = Constants.email
+                val age = binding.etBrithDate.selectedItem.toString()
+                val address = binding.selectedRegionTv.text.toString()
+                var gen = ""
+                gen = if (genIsMan) {
+                    "erkak"
+                } else {
+                    "ayol"
+                }
+
+                val user = uz.sultonbek1547.hackathonproject2024_innovatex.models.User(
+                    "",
+                    name,
+                    surname,
+                    number,
+                    password,
+                    age,
+                    "",
+                    gen,
+                    address,
+                    email
+                )
+
+                addUser(user)
+
             }
-
-            val user = uz.sultonbek1547.hackathonproject2024_innovatex.models.User(
-                "",
-                name,
-                surname,
-                number,
-                password,
-                age,
-                "",
-                gen,
-                address,
-                email
-            )
-
-            addUser(user)
-
         }
 
 
