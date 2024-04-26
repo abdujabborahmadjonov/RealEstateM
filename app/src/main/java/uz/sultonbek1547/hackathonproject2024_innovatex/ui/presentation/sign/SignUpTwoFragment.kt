@@ -3,6 +3,7 @@ package uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.sign
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -188,14 +189,15 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
     private fun addUser(user: User) = CoroutineScope(Dispatchers.IO).launch {
         try {
             MyFirebaseService().postUser(user)
-            withContext(Dispatchers.Main) {
-                activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-                Toast.makeText(context, "Xush kelibsiz", Toast.LENGTH_LONG).show()
-                MySharedPreference.isUserAuthenticated = true
-                startActivity(Intent(requireContext(), MainActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                })
-            }
+            Log.i("TAGuserpost", "addUser: $user")
+//            withContext(Dispatchers.Main) {
+//                activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+//                Toast.makeText(context, "Xush kelibsiz", Toast.LENGTH_LONG).show()
+//                MySharedPreference.isUserAuthenticated = true
+//                startActivity(Intent(requireContext(), MainActivity::class.java).apply {
+//                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//                })
+//            }
 
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {

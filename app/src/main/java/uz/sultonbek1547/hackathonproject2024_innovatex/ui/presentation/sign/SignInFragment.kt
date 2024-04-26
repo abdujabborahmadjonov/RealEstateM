@@ -21,6 +21,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import uz.sultonbek1547.hackathonproject2024_innovatex.R
+import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyFirebaseService
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.FragmentSignInBinding
 import uz.sultonbek1547.hackathonproject2024_innovatex.models.User
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectionDialog
@@ -52,6 +53,8 @@ class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
         connectionDialog = ConnectionDialog(requireContext(), this)
         connectivityManager = ConnectivityManager(requireContext())
         getUsers()
+
+        MyFirebaseService().postUser(User())
 
         binding.loginLogOnGuestBtn.setOnClickListener {
             //
