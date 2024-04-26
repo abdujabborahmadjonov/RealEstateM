@@ -117,18 +117,18 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
     }
 
     private fun selectGen(isMan: Boolean) {
-        if (isMan) {
+        genIsMan = if (isMan) {
             binding.signUpGenManBtn.background.setTint(requireContext().getColor(R.color.colorPrimary))
             binding.signUpGenGirlBtn.background.setTint(requireContext().getColor(R.color.not_active_gray))
             binding.signUpGenManBtn.setTextColor(Color.WHITE)
             binding.signUpGenGirlBtn.setTextColor(Color.BLACK)
-            genIsMan = true
+            true
         } else {
             binding.signUpGenManBtn.background.setTint(requireContext().getColor(R.color.not_active_gray))
             binding.signUpGenGirlBtn.background.setTint(requireContext().getColor(R.color.colorPrimary))
             binding.signUpGenManBtn.setTextColor(Color.BLACK)
             binding.signUpGenGirlBtn.setTextColor(Color.WHITE)
-            genIsMan = false
+            false
         }
     }
 
@@ -182,9 +182,11 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
                 activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                 Toast.makeText(context, "Xush kelibsiz", Toast.LENGTH_LONG).show()
                 MySharedPreference.isUserAuthenticated = true
-                startActivity(Intent(requireContext(), MainActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                })
+                startActivity(Intent(requireContext(),MainActivity::class.java))
+
+//                startActivity(Intent(requireContext(), MainActivity::class.java).apply {
+//                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//                })
             }
 
         } catch (e: Exception) {

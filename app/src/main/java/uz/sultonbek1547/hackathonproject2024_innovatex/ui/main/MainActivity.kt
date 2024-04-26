@@ -3,6 +3,7 @@ package uz.sultonbek1547.hackathonproject2024_innovatex.ui.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.navigation.findNavController
 import uz.sultonbek1547.hackathonproject2024_innovatex.R
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.ActivityMainBinding
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         MySharedPreference.init(this)
+
+        Toast.makeText(this, "${MySharedPreference.isUserAuthenticated}", Toast.LENGTH_SHORT).show()
 
         // false means user have not logged in yet
         if (MySharedPreference.isUserAuthenticated != true) {
