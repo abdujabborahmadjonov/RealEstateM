@@ -1,4 +1,4 @@
-package uz.sultonbek1547.hackathonproject2024_innovatex.bottom_nav_fragments
+package uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.bottom_nav_fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
