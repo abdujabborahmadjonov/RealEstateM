@@ -28,14 +28,13 @@
         app:layout_constraintStart_toStartOf="@+id/dialog_connection_background"
         app:layout_constraintTop_toTopOf="@+id/dialog_connection_background">
 
-        <com.airbnb.lottie.LottieAnimationView
+        <ImageView
             android:id="@+id/dg_connection_lottie"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:padding="10dp"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="heart_beat_loading2.json"
-            app:lottie_loop="true" />
+            android:src="@drawable/rectangle_r10_stroke"
+            />
 
         <TextView
             android:id="@+id/dg_connection_text"

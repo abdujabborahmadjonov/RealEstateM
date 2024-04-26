@@ -51,20 +51,15 @@ class ConnectionDialog(val context: Context, private val connectionDialogClicked
 
         when(key) {
             Constants.NO_INTERNET -> {
-                connectionBinding.dgConnectionLottie.setAnimation("no_internet.json")
                 connectionBinding.dgConnectionText.text = "Tarmoq bilan aloqa mavjud emas!"
                 connectionBinding.dgConnectionBtnLayout.visibility = View.VISIBLE
             }
             Constants.IS_LOADING -> {
-                connectionBinding.dgConnectionLottie.setAnimation("heart_beat_loading2.json")
-                connectionBinding.dgConnectionLottie.playAnimation()
                 connectionBinding.dgConnectionText.text = message
                 connectionBinding.dgConnectionBtnLayout.visibility = View.GONE
             }
             Constants.IS_CHECK_API -> {
-                connectionBinding.dgConnectionLottie.setAnimation("check_done.json")
-                connectionBinding.dgConnectionLottie.loop(false)
-                connectionBinding.dgConnectionLottie.playAnimation()
+
                 connectionBinding.dgConnectionText.text = message
                 connectionBinding.dgConnectionBtnLayout.visibility = View.GONE
                 object : CountDownTimer(3000,3000) {
@@ -75,9 +70,7 @@ class ConnectionDialog(val context: Context, private val connectionDialogClicked
                 }.start()
             }
             Constants.IS_NOT_CHECKED -> {
-                connectionBinding.dgConnectionLottie.setAnimation("not_done.json")
-                connectionBinding.dgConnectionLottie.loop(false)
-                connectionBinding.dgConnectionLottie.playAnimation()
+
                 connectionBinding.dgConnectionText.text = message
                 connectionBinding.dgConnectionBtnLayout.visibility = View.VISIBLE
             }
