@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.initialize
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -44,7 +45,7 @@ class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
     ): View {
         connectionDialog = ConnectionDialog(requireContext(), this)
         connectivityManager = ConnectivityManager(requireContext())
-
+          FirebaseApp.initializeApp(requireContext())
         getUsers()
 
         binding.loginLogOnGuestBtn.setOnClickListener {
