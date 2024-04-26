@@ -3,7 +3,7 @@ package uz.sultonbek1547.hackathonproject2024_innovatex.utils
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
-import uz.sultonbek1547.my_school_library.models.User
+import uz.sultonbek1547.hackathonproject2024_innovatex.models.User
 
 
 object MySharedPreference {
