@@ -33,7 +33,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
-                app:cardCornerRadius="5dp"
+                app:cardCornerRadius="6dp"
                 android:layout_marginEnd="10dp">
 
                 <ImageView
@@ -66,6 +66,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Graf Monte Kristo"
+                    android:fontFamily="@font/gilroy_semibold"
                     android:layout_gravity="start"
                     android:textSize="18sp"
                     android:textColor="@color/orange_active"
@@ -79,8 +80,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
+                    android:fontFamily="@font/gilroy_medium"
                     android:text="Aleksandr Dyuma"
-                    android:textColor="@color/gray_text_color"
+                    android:textColor="@color/black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -92,7 +94,8 @@
                     android:text="Mart 21, 16:46"
                     android:gravity="end"
                     android:textSize="13sp"
-                    android:textColor="@color/gray_text_color" />
+                    android:fontFamily="@font/gilroy_medium"
+                    android:textColor="@color/black" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
