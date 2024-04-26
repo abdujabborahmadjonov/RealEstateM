@@ -27,6 +27,6 @@
     </fragment>
     <fragment
         android:id="@+id/signUpTwoFragment"
-        android:name="dev.abdujabbor.modeltest.screens.sign.SignUpTwoFragment"
+        android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.sign.SignUpTwoFragment"
         android:label="SignUpTwoFragment" />
 </navigation>
