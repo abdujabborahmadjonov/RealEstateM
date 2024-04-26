@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
-
+// salom 
 android {
     namespace = "uz.sultonbek1547.hackathonproject2024_innovatex"
     compileSdk = 34
