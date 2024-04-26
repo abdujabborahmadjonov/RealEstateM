@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_one"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#77F2D0F8"
+    tools:context=".screens.sign.SignUpTwoFragment">
+
+    <TextView
+        android:id="@+id/sign_up_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gilroy_bold"
+        android:text="Registration"
+        android:textColor="@color/black"
+        android:layout_marginBottom="@dimen/_20dp"
+        android:textSize="@dimen/_24sp"
+        app:layout_constraintBottom_toTopOf="@+id/sign_up_selected_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/sign_up_selected_image"
+        android:layout_width="@dimen/_100dp"
+        android:layout_height="@dimen/_100dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="@dimen/_50dp"
+        android:background="@drawable/ripple_rectangle_r14"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:src="@drawable/man_carton_image"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize15Percent"/>
+
+    <ImageView
+        android:id="@+id/sign_up_change_image"
+        android:layout_width="@dimen/_50dp"
+        android:layout_height="@dimen/_50dp"
+        android:layout_marginEnd="-20dp"
+        android:layout_marginBottom="-15dp"
+        android:background="@drawable/background_sent_message_btn"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/_15dp"
+        android:src="@drawable/ic_camera"
+        app:layout_constraintBottom_toBottomOf="@+id/sign_up_selected_image"
+        app:layout_constraintEnd_toEndOf="@+id/sign_up_selected_image"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        app:tint="@color/gray_text_color"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@+id/et_brith_date"
+        app:layout_constraintEnd_toEndOf="@+id/et_brith_date"
+        app:layout_constraintStart_toStartOf="@+id/et_brith_date">
+
+        <EditText
+            android:id="@+id/sign_up_firstname_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5dp"
+            android:layout_weight="1"
+            android:background="@drawable/rectangle_r10_stroke"
+            android:drawableStart="@drawable/ic_person"
+            android:drawablePadding="@dimen/_10dp"
+            android:fontFamily="@font/gilroy_regular"
+            android:hint="Your name"
+            android:inputType="textPersonName"
+            android:paddingStart="@dimen/_18dp"
+            android:paddingTop="@dimen/_20dp"
+            android:paddingEnd="@dimen/_10dp"
+            android:paddingBottom="@dimen/_20dp"
+            android:textColor="@color/black_text_color2"
+            android:textColorHint="@color/gray_text_color"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/sign_up_lastname_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5dp"
+            android:layout_weight="1"
+            android:background="@drawable/rectangle_r10_stroke"
+            android:fontFamily="@font/gilroy_regular"
+            android:hint="Your surname"
+            android:inputType="textPersonName"
+            android:paddingStart="@dimen/_15dp"
+            android:paddingTop="@dimen/_20dp"
+            android:paddingBottom="@dimen/_20dp"
+            android:textColor="@color/black_text_color2"
+            android:textColorHint="@color/gray_text_color"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+    <Spinner
+        android:id="@+id/et_brith_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/rectangle_r10_stroke"
+        android:clickable="false"
+        android:drawablePadding="@dimen/_10dp"
+        android:fontFamily="@font/gilroy_regular"
+        android:gravity="center|start"
+        android:hint="Employer type"
+        android:paddingStart="@dimen/_15dp"
+        android:paddingTop="@dimen/_20dp"
+        android:paddingBottom="@dimen/_20dp"
+        android:textColor="@color/black_text_color2"
+        android:textColorHint="@color/gray_text_color"
+        android:textSize="18sp"
+        app:drawableStartCompat="@drawable/ic_calendar"
+        app:layout_constraintBottom_toTopOf="@+id/selected_country_tv"
+        app:layout_constraintEnd_toEndOf="@+id/selected_country_tv"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/selected_country_tv"
+        app:textInputLayoutFocusedRectEnabled="true" />
+
+    <TextView
+        android:id="@+id/selected_country_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/rectangle_r10_stroke"
+        android:fontFamily="@font/gilroy_medium"
+        android:gravity="start|center"
+        android:paddingStart="53dp"
+        android:paddingTop="@dimen/_20dp"
+        android:paddingBottom="@dimen/_20dp"
+        android:text="Uzbekistan"
+        android:textColor="@color/black_text_color2"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/selected_region_tv"
+        app:layout_constraintEnd_toEndOf="@+id/sign_up_one_next_btn"
+        app:layout_constraintStart_toStartOf="@+id/sign_up_one_next_btn"
+        app:textInputLayoutFocusedRectEnabled="true" />
+
+    <ImageView
+        android:id="@+id/selected_country_flag_img"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_online"
+        app:layout_constraintBottom_toBottomOf="@+id/selected_country_tv"
+        app:layout_constraintStart_toStartOf="@+id/selected_country_tv"
+        app:layout_constraintTop_toTopOf="@+id/selected_country_tv" />
+
+    <EditText
+        android:id="@+id/selected_region_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rectangle_r10_stroke"
+        android:drawablePadding="@dimen/_10dp"
+        android:fontFamily="@font/gilroy_medium"
+        android:gravity="start|center"
+        android:hint="Address e.g Xonariq,Qoratepa"
+        android:paddingStart="@dimen/_10dp"
+        android:paddingTop="@dimen/_20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="@dimen/_20dp"
+        android:textColor="@color/black_text_color2"
+        android:textColorHint="@color/gray_text_color"
+        android:textSize="18sp"
+        app:drawableEndCompat="@drawable/ic_right_arrow"
+        app:drawableStartCompat="@drawable/ic_city"
+        app:drawableTint="@color/gray_text_color"
+        app:layout_constraintBottom_toTopOf="@+id/sign_up_gen_man_btn"
+        app:layout_constraintEnd_toEndOf="@+id/sign_up_one_next_btn"
+        app:layout_constraintStart_toStartOf="@+id/sign_up_gen_man_btn"
+        app:textInputLayoutFocusedRectEnabled="true" />
+
+    <TextView
+        android:id="@+id/sign_up_gen_man_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/ripple_rectangle_r10"
+        android:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/gilroy_medium"
+        android:gravity="center"
+        android:paddingStart="50dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="40dp"
+        android:paddingBottom="10dp"
+        android:text="Male"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/sign_up_one_next_btn"
+        app:layout_constraintStart_toStartOf="@+id/sign_up_one_next_btn" />
+
+    <ImageView
+        android:id="@+id/gender_man_image"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/man"
+        app:layout_constraintBottom_toBottomOf="@+id/sign_up_gen_man_btn"
+        app:layout_constraintStart_toStartOf="@+id/sign_up_gen_man_btn"
+        app:layout_constraintTop_toTopOf="@+id/sign_up_gen_man_btn" />
+
+    <TextView
+        android:id="@+id/sign_up_gen_girl_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/ripple_rectangle_r10"
+        android:backgroundTint="@color/not_active_gray"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/gilroy_medium"
+        android:gravity="center"
+        android:paddingStart="50dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="40dp"
+        android:paddingBottom="10dp"
+        android:text="Female"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/sign_up_gen_man_btn"
+        app:layout_constraintTop_toTopOf="@+id/sign_up_gen_man_btn" />
+
+    <ImageView
+        android:id="@+id/gender_girl_image"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/girl"
+        app:layout_constraintBottom_toBottomOf="@+id/sign_up_gen_girl_btn"
+        app:layout_constraintStart_toStartOf="@+id/sign_up_gen_girl_btn"
+        app:layout_constraintTop_toTopOf="@+id/sign_up_gen_girl_btn" />
+
+    <TextView
+        android:id="@+id/sign_up_one_next_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/ripple_rectangle_r10"
+        android:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/gilroy_bold"
+        android:gravity="center"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_marginStart="@dimen/_15dp"
+        android:layout_marginEnd="@dimen/_15dp"
+        android:text="Next"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/sign_up_three_sign_in_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/sign_up_three_sign_in_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sign_up_one_next_btn"
+        app:layout_constraintStart_toStartOf="@+id/sign_up_one_next_btn">
+
+        <TextView
+            android:id="@+id/sign_up_title_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gilroy_medium"
+            android:text="Have you registerd before" />
+
+        <TextView
+            android:id="@+id/sign_up_sign_in_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/gilroy_bold"
+            android:foreground="?selectableItemBackground"
+            android:text="Yes, I registered"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
