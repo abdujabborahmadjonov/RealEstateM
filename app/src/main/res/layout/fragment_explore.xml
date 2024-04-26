@@ -3,12 +3,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimary2"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.presentation.bottom_nav_fragments.ExploreFragment">
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/colorPrimary8"
+        android:layout_height="wrap_content" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/container_empty"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:paddingBottom="100dp"
+        android:orientation="vertical">
 
-    <TextView
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            app:tint="@color/colorPrimary8" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="5dp"
+            android:text="E'lonlar mavjud emas"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:paddingBottom="15dp"
+            android:textColor="@color/orange_active"
+            android:textSize="22sp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:clickable="true"
+        tools:listitem="@layout/book_rv_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:focusable="true" />
+
 
 </FrameLayout>

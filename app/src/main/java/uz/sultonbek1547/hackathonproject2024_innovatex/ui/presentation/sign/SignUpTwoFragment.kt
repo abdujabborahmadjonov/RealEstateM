@@ -29,7 +29,7 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         connectionDialog = ConnectionDialog(requireContext(), this)
         connectivityManager = ConnectivityManager(requireContext())
 
