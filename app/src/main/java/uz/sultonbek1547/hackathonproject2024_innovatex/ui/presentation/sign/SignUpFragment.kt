@@ -34,7 +34,7 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
             findNavController().navigate(R.id.signInFragment)
         }
         binding.signUpTwoNextBtn.setOnClickListener {
-            if (filledInformation()) {
+            if (!filledInformation()) {
                 Snackbar.make(binding.root, "Good Job", 2000).show()
                 Constants.number = binding.signUpPhoneNumberEt.text.toString()
                 Constants.password = binding.signUpPasswordEt.text.toString()

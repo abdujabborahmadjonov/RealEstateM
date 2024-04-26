@@ -56,8 +56,6 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
         binding.etBrithDate.adapter = adapter
         binding.etBrithDate.setSelection(0)
         binding.signUpOneNextBtn.setOnClickListener {
-
-
             if (filledInformation()) {
                 val name = binding.signUpFirstnameEt.text.toString()
                 val surname = binding.signUpLastnameEt.text.toString()
@@ -87,7 +85,7 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
                 )
 
                 addUser(user)
-
+                Toast.makeText(context, "adding", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -96,25 +94,12 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
 
         binding.signUpGenGirlBtn.setOnClickListener { selectGen(false) }
 
-        binding.signUpOneNextBtn.setOnClickListener {
-
-
-            findNavController().navigate(
-                R.id.signInFragment,
-                null,
-                NavOptions.Builder()
-                    .setPopUpTo(findNavController().currentDestination?.id ?: 0, true)
-                    .build()
-            )
-        }
 
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-    }
+
 
     override fun connectDialogRefreshClicked(refreshType: String) {
         if (refreshType == "") connectionDialog.dismissDialog()
@@ -193,15 +178,14 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
     private fun addUser(user: User) = CoroutineScope(Dispatchers.IO).launch {
         try {
             MyFirebaseService().postUser(user)
-            Log.i("TAGuserpost", "addUser: $user")
-//            withContext(Dispatchers.Main) {
-//                activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-//                Toast.makeText(context, "Xush kelibsiz", Toast.LENGTH_LONG).show()
-//                MySharedPreference.isUserAuthenticated = true
-//                startActivity(Intent(requireContext(), MainActivity::class.java).apply {
-//                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//                })
-//            }
+            withContext(Dispatchers.Main) {
+                activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+                Toast.makeText(context, "Xush kelibsiz", Toast.LENGTH_LONG).show()
+                MySharedPreference.isUserAuthenticated = true
+                startActivity(Intent(requireContext(), MainActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                })
+            }
 
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
