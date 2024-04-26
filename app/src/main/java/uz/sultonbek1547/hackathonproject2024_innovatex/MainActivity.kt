@@ -1,4 +1,4 @@
-package uz.sultonbek1547.hackathonproject2024_innovatex.ui
+package uz.sultonbek1547.hackathonproject2024_innovatex
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
