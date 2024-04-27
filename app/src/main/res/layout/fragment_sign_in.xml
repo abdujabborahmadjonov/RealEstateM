@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#77F2D0F8"
+    android:background="#00F2D0F8"
     tools:context=".ui.presentation.sign.SignInFragment">
 
 
@@ -23,7 +23,7 @@
             android:layout_height="100dp"
             android:backgroundTint="@color/white"
             android:paddingTop="5dp"
-            android:src="@drawable/logo_mega" />
+            android:src="@drawable/ic_arrow_down" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -37,8 +37,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/gilroy_extra_bold"
-                android:text="Minerent"
-                android:textColor="@color/colorPrimary"
+                android:text="Kitob almashamiz"
+                android:textColor="@color/dark_orange"
                 android:textSize="24sp" />
 
             <TextView
@@ -62,7 +62,7 @@
         android:layout_marginBottom="20dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:background="@drawable/rectangle_r10_stroke"
+        android:background="@drawable/bacground_border"
         android:fontFamily="@font/gilroy_regular"
         android:hint="Phone number"
         android:inputType="phone|numberSigned"
@@ -134,7 +134,7 @@
         android:layout_marginBottom="20dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:background="@drawable/rectangle_r10_stroke"
+        android:background="@drawable/bacground_border"
         android:fontFamily="@font/gilroy_regular"
         android:hint="Password"
         android:inputType="textPassword"
@@ -168,7 +168,7 @@
         android:foreground="?attr/selectableItemBackground"
         android:gravity="bottom"
         android:text="Do you froget the password ?"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/dark_orange"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/login_sign_in_btn"
@@ -181,7 +181,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:background="@drawable/ripple_rectangle_r10"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="@color/dark_orange"
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="@font/gilroy_medium"
@@ -209,7 +209,7 @@
         android:fontFamily="@font/gilroy_medium"
         android:gravity="center"
         android:text="Register"
-        android:textColor="@color/black"
+        android:textColor="@color/dark_orange"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
         app:layout_constraintEnd_toEndOf="@+id/login_forgot_password_btn"
@@ -230,7 +230,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Do you want to enter ?"
-            android:textColor="#B9B9B9" />
+            android:textColor="@color/dark_orange" />
 
         <TextView
             android:id="@+id/login_log_on_guest_btn"
@@ -242,7 +242,7 @@
             android:fontFamily="@font/gilroy_bold"
             android:text="Login as a guest"
             android:foreground="?selectableItemBackground"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/dark_orange"
             android:textSize="16sp"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>

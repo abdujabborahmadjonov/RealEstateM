@@ -9,9 +9,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="colorPrimary2">#55001D</color>
-    <color name="colorPrimary">#7A008F</color>
+    <color name="colorPrimary">#FFFFFF</color>
 
-    <color name="colorPrimary8">#A01EB6</color>
+    <color name="colorPrimary8">#FFFFFF</color>
 
     <color name="main_background">#F6F7F8</color>
     <color name="transparent">#00FFFFFF</color>
@@ -66,7 +66,7 @@
     <color name="light_gray">#b9d8c2</color>
     <color name="darker_gray">#99C59F</color>
     <color name="blue">#2196F3</color>
-    <color name="dark_orange">#0b3948</color>
+    <color name="dark_orange">#104151</color>
     <color name="yellow">#0d1821</color>
     <color name="light_dark_orange">#FFC107</color>
     <color name="light_orange">#FFDB70</color>
