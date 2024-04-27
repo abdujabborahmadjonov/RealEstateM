@@ -6,9 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyFirebaseService
 import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyRemoteRepository
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.FragmentExploreBinding
@@ -95,7 +98,27 @@ class ExploreFragment : Fragment() {
         position: Int,
     ) {
 
+        val direction = ExploreFragmentDirections.actionExploreFragmentToBookInfoFragment(
+            selectedItem,
+            position.toString()
+        )
+
+        val extras = FragmentNavigatorExtras(
+            image to selectedItem.imageId + "$position",
+            tvName to selectedItem.name + "$position",
+            tvAuthor to selectedItem.author + "$position",
+            tvUserName to selectedItem.userName + "$position",
+            tvDescription to selectedItem.description + "$position",
+
+            )
+
+        findNavController().navigate(direction, extras)
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        postponeEnterTransition()
+        view.doOnPreDraw { startPostponedEnterTransition() }
+    }
 }

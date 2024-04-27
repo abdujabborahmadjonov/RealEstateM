@@ -9,7 +9,11 @@
         android:id="@+id/exploreFragment"
         android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.bottom_nav_fragments.ExploreFragment"
         android:label="fragment_explore"
-        tools:layout="@layout/fragment_explore" />
+        tools:layout="@layout/fragment_explore" >
+        <action
+            android:id="@+id/action_exploreFragment_to_bookInfoFragment"
+            app:destination="@id/bookInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/chatsFragment"
         android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.bottom_nav_fragments.ChatsFragment"
@@ -42,4 +46,17 @@
         android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.fragments.AboutAppFragment"
         android:label="fragment_about_app"
         tools:layout="@layout/fragment_about_app" />
+    <fragment
+        android:id="@+id/bookInfoFragment"
+        android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.fragments.BookInfoFragment"
+        android:label="BookInfoFragment" >
+
+        <argument
+            android:name="book"
+            app:argType="uz.sultonbek1547.hackathonproject2024_innovatex.models.Book" />
+        <argument
+            android:name="position"
+            app:argType="string" />
+
+    </fragment>
 </navigation>
