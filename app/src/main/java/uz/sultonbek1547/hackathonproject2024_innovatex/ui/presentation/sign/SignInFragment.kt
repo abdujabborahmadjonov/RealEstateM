@@ -65,7 +65,7 @@ class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
         }
 
         binding.loginSignInBtn.setOnClickListener {
-
+    //salom
 
 
             myCustomSnackBar = MyCustomSnackBar(it, layoutInflater)
