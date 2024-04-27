@@ -15,6 +15,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,6 +25,7 @@ import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyConstants.TYPE
 import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyConstants.chatReference
 import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyFirebaseService
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.ActivityChatBinding
+import uz.sultonbek1547.hackathonproject2024_innovatex.models.Book
 import uz.sultonbek1547.hackathonproject2024_innovatex.models.Message
 import uz.sultonbek1547.hackathonproject2024_innovatex.models.MessageText
 import uz.sultonbek1547.hackathonproject2024_innovatex.models.User
@@ -42,6 +45,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var receiverId: String
     private lateinit var receiverName: String
     private lateinit var sender: User
+    private lateinit var book: Book
 
     //private lateinit var chatAdapter: ChatAdapter
 
@@ -52,6 +56,7 @@ class ChatActivity : AppCompatActivity() {
         sender = MySharedPreference.user!!
         receiverId = intent?.getStringExtra("userId").toString()
         receiverName = intent?.getStringExtra("userName").toString()
+        book = intent?.getSerializableExtra("book") as Book
 
 
         database = FirebaseDatabase.getInstance()
@@ -83,6 +88,20 @@ class ChatActivity : AppCompatActivity() {
         binding.edtMessage.isActivated = true
         binding.edtMessage.isPressed = true
         binding.edtMessage.requestFocus()
+
+        binding.tvBookItemName.text = book.name
+        binding.tvBookItemAuthor.text = book.author
+
+        Picasso.get().load(book.imageLink)
+            .into(binding.bookItemImage, object : Callback {
+                override fun onSuccess() {
+                }
+
+                override fun onError(e: Exception?) {
+
+                }
+            })
+
 
         binding.edtMessage.addTextChangedListener {
             if (it != null) {

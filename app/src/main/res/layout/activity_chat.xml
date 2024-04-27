@@ -87,6 +87,65 @@
 
         </androidx.appcompat.widget.Toolbar>
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:background="@color/ripple_effect_color"
+            android:layout_height="?actionBarSize">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="?actionBarSize"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="5dp"
+                android:layout_margin="5dp">
+
+                <ImageView
+                    android:id="@+id/book_item_image"
+                    android:layout_width="100dp"
+                    android:src="@drawable/ic_launcher_foreground"
+                    android:background="@color/gray"
+                    android:scaleType="fitXY"
+                    android:layout_height="match_parent" />
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:id="@+id/tv_book_item_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Graf Monte Kristo"
+                        android:layout_gravity="start"
+                        android:textSize="18sp"
+                        android:textColor="@color/dark_orange"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/tv_book_item_name"
+                        app:layout_constraintTop_toBottomOf="@id/tv_book_item_name"
+                        android:id="@+id/tv_book_item_author"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Aleksandr Dyuma"
+                        android:textColor="@color/gray"
+                        android:textSize="15sp" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/my_rv"

@@ -1,6 +1,5 @@
 package uz.sultonbek1547.hackathonproject2024_innovatex.utils.adapters
 
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import uz.sultonbek1547.hackathonproject2024_innovatex.R
-import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.BookRvItemBinding
+import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.MyBookRvItemBinding
 import uz.sultonbek1547.hackathonproject2024_innovatex.models.Book
 
-class ExploreBooksRvAdapter(val function: (Book, ImageView, TextView, TextView, TextView, TextView, Int) -> Unit) :
-    RecyclerView.Adapter<ExploreBooksRvAdapter.Vh>() {
+class MyBooksRecyclerviewAdapter(val function: (Book, ImageView, TextView, TextView, Int) -> Unit) :
+    RecyclerView.Adapter<MyBooksRecyclerviewAdapter.Vh>() {
 
     var booksList: ArrayList<Book> = ArrayList()
         set(value) {
@@ -22,38 +20,29 @@ class ExploreBooksRvAdapter(val function: (Book, ImageView, TextView, TextView, 
             notifyDataSetChanged()
         }
 
-    inner class Vh(val itemRvBinding: BookRvItemBinding) :
+    inner class Vh(val itemRvBinding: MyBookRvItemBinding) :
         RecyclerView.ViewHolder(itemRvBinding.root) {
         fun onBind(book: Book, position: Int) {
             itemRvBinding.itemImage.transitionName = book.id + "$position"
             itemRvBinding.tvBookName.transitionName = book.name + "$position"
             itemRvBinding.tvBookAuthor.transitionName = book.author + "$position"
-            itemRvBinding.tvUserName.transitionName = book.userName + "$position"
-            itemRvBinding.tvUserPostedDate.transitionName = book.description + "$position"
-
-            if (book.userGender == "erkak") itemRvBinding.userImage.setImageResource(R.drawable.man_carton_image)
-            else itemRvBinding.userImage.setImageResource(R.drawable.girl_carton_image)
 
 
             itemRvBinding.apply {
-                    tvUserName.text = book.userName
-                    tvUserPostedDate.text = book.productPostedDataAndTime
-                    tvBookName.text = book.name
-                    tvBookAuthor.text = book.author
-                }
+                tvBookName.text = book.name
+                tvBookAuthor.text = book.author
+                tvUserPostedDate.text = book.productPostedDataAndTime
+
+            }
             itemRvBinding.cardView.setOnClickListener {
                 itemRvBinding.itemImage.transitionName = book.id + "$position"
                 itemRvBinding.tvBookName.transitionName = book.name + "$position"
                 itemRvBinding.tvBookAuthor.transitionName = book.author + "$position"
-                itemRvBinding.tvUserName.transitionName = book.userName + "$position"
-                itemRvBinding.tvUserPostedDate.transitionName = book.description + "$position"
                 function(
                     book,
                     itemRvBinding.itemImage,
                     itemRvBinding.tvBookName,
                     itemRvBinding.tvBookAuthor,
-                    itemRvBinding.tvUserName,
-                    itemRvBinding.tvUserPostedDate,
                     position
                 )
             }
@@ -73,7 +62,7 @@ class ExploreBooksRvAdapter(val function: (Book, ImageView, TextView, TextView, 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Vh {
-        return Vh(BookRvItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return Vh(MyBookRvItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: Vh, position: Int) =

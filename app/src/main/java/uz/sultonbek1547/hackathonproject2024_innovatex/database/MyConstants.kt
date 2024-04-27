@@ -13,4 +13,6 @@ object MyConstants {
     var screenLengthItem = 1
     var chatReference: DatabaseReference? = null
 
+    var bookPoster = User()
+
 }

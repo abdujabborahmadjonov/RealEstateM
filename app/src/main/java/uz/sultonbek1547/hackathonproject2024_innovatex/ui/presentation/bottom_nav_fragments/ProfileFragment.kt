@@ -50,6 +50,7 @@ class ProfileFragment : Fragment() {
                 ) { dialog, which ->
                     // Continue with delete operation
                     MySharedPreference.isUserAuthenticated = false
+                    MySharedPreference.user = User()
                     startActivity(Intent(context, LoginActivity::class.java).apply {
                         flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     })

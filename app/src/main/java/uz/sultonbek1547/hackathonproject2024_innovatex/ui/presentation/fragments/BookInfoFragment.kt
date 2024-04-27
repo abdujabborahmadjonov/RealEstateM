@@ -94,6 +94,7 @@ class BookInfoFragment : Fragment() {
             val intent = Intent(context, ChatActivity::class.java).apply {
                 putExtra("userId", book?.userId)
                 putExtra("userName", book?.userName)
+                putExtra("book", book)
             }
             requireActivity().startActivity(intent)
         }
@@ -156,36 +157,36 @@ class BookInfoFragment : Fragment() {
         
     }
 
-    private fun showCallOrSmsDialog(userName: String, userPhoneNumber: String) {
-        val bottomSheetDialog =
-            BottomSheetDialog(requireContext(), R.style.AppBottomSheetDialogTheme)
-        val bottomSheetBinding = BottomSheetBinding.inflate(layoutInflater)
-        bottomSheetDialog.setContentView(bottomSheetBinding.root)
-        bottomSheetBinding.apply {
-            tvUserName.text = userName
-            tvUserPhoneNumber.text = user.number
-
-
-            btnClose.setOnClickListener {
-                if (bottomSheetDialog.isShowing) bottomSheetDialog.dismiss()
-            }
-
-            btnCall.setOnClickListener {
-                val callIntent = Intent(Intent.ACTION_DIAL)
-                callIntent.data = Uri.parse("tel:${userPhoneNumber}")
-                startActivity(callIntent)
-            }
-            btnSms.setOnClickListener {
-                val smsUri = Uri.parse("smsto:${userPhoneNumber}")
-                val smsIntent = Intent(Intent.ACTION_SENDTO, smsUri)
-                smsIntent.putExtra("sms_body", "Assalomu alaykum")
-                startActivity(smsIntent)
-            }
-
-        }
-
-        bottomSheetDialog.show()
-
-    }
+//    private fun showCallOrSmsDialog(userName: String, userPhoneNumber: String) {
+//        val bottomSheetDialog =
+//            BottomSheetDialog(requireContext(), R.style.AppBottomSheetDialogTheme)
+//        val bottomSheetBinding = uz.sultonbek1547.hackathonproject2024_innovatex.databinding.BottomSheetBinding.inflate(layoutInflater)
+//        bottomSheetDialog.setContentView(bottomSheetBinding.root)
+//        bottomSheetBinding.apply {
+//            tvUserName.text = userName
+//            tvUserPhoneNumber.text = user.number
+//
+//
+//            btnClose.setOnClickListener {
+//                if (bottomSheetDialog.isShowing) bottomSheetDialog.dismiss()
+//            }
+//
+//            btnCall.setOnClickListener {
+//                val callIntent = Intent(Intent.ACTION_DIAL)
+//                callIntent.data = Uri.parse("tel:${userPhoneNumber}")
+//                startActivity(callIntent)
+//            }
+//            btnSms.setOnClickListener {
+//                val smsUri = Uri.parse("smsto:${userPhoneNumber}")
+//                val smsIntent = Intent(Intent.ACTION_SENDTO, smsUri)
+//                smsIntent.putExtra("sms_body", "Assalomu alaykum")
+//                startActivity(smsIntent)
+//            }
+//
+//        }
+//
+//        bottomSheetDialog.show()
+//
+//    }
 }
 

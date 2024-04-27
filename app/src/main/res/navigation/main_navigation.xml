@@ -23,7 +23,11 @@
         android:id="@+id/myBooksFragment"
         android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.bottom_nav_fragments.MyBooksFragment"
         android:label="fragment_my_books"
-        tools:layout="@layout/fragment_my_books" />
+        tools:layout="@layout/fragment_my_books" >
+        <action
+            android:id="@+id/action_myBooksFragment_to_bookInfoFragment"
+            app:destination="@id/bookInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.bottom_nav_fragments.ProfileFragment"
