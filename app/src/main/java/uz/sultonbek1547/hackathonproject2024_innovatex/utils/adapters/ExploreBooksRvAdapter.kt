@@ -31,8 +31,12 @@ class ExploreBooksRvAdapter(val function: (Book, ImageView, TextView, TextView, 
             itemRvBinding.tvUserName.transitionName = book.userName + "$position"
             itemRvBinding.tvUserPostedDate.transitionName = book.description + "$position"
 
-            if (book.userGender == "erkak") itemRvBinding.userImage.setImageResource(R.drawable.man_carton_image)
-            else itemRvBinding.userImage.setImageResource(R.drawable.girl_carton_image)
+            if (book.userGender == "erkak"){
+                itemRvBinding.userImage.setImageResource(R.drawable.man_carton_image)
+            }
+            else {
+                itemRvBinding.userImage.setImageResource(R.drawable.girl_carton_image)
+            }
 
 
             itemRvBinding.apply {

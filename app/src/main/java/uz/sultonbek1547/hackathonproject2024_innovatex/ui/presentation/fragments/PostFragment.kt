@@ -125,7 +125,7 @@ class PostFragment : Fragment() {
                                 bookCategory,
                                 bookDescription,
                                 currentDateTime,
-                                MySharedPreference.user!!.id
+                                MySharedPreference.user!!.gender
                             )
                         )
                     }
