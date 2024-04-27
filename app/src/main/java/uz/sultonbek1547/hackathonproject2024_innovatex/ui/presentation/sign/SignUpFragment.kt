@@ -9,6 +9,7 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import uz.sultonbek1547.hackathonproject2024_innovatex.R
+import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyConstants
 
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.FragmentSignUpBinding
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectionDialog
@@ -35,7 +36,6 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
         }
         binding.signUpTwoNextBtn.setOnClickListener {
             if (filledInformation()) {
-                Snackbar.make(binding.root, "Good Job", 2000).show()
                 Constants.number = binding.signUpPhoneNumberEt.text.toString()
                 Constants.password = binding.signUpPasswordEt.text.toString()
                 Constants.email = binding.signUpEmailEt.text.toString()
@@ -55,24 +55,9 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
 
     private fun filledInformation(): Boolean {
         var filledInformation: Boolean
-        var two= binding.signUpEmailEt.text.trim().substring(0,2)
+        val two= binding.signUpEmailEt.text.trim().substring(0,2).toInt()
 
-        if ((binding.signUpPhoneNumberEt.text.toString().replace("-", "").length ==
-                    binding.signUpPhoneNumberEt.text.trim().length) &&
-            binding.signUpEmailEt.text.toString().contains("@gmail.com") &&
-            (binding.signUpPasswordEt.text.length >= 8) && (two == "91") &&
-            (two == "77") &&
-            (two == "88") &&
-            (two == "90") &&
-            (two == "95") &&
-            (two == "99") &&
-            (two == "98") &&
-            (two == "93") &&
-            (two == "94") &&
-            (two == "97") &&
-            (two == "20") &&
-            (two == "73") &&
-            (binding.signUpPasswordEt.text.toString() == binding.signUpConfirmPasswordEt.toString())
+        if (MyConstants.UZB_PHONE_NUM_PREFIX.contains(two)
         ) {
             filledInformation = true
         } else if (binding.signUpPhoneNumberEt.text.toString().replace("-", "").length ==
@@ -84,20 +69,7 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
             filledInformation = true
         } else {
             filledInformation = true
-            if (binding.signUpPhoneNumberEt.text.toString()
-                    .isEmpty() || binding.signUpPhoneNumberEt.text.toString()
-                    .replace("-", "").length != binding.signUpPhoneNumberEt.text.trim().length&&  two=="91"&&
-                two!="77"&&
-                two!="88"&&
-                two!="90"&&
-                two!="95"&&
-                two!="99"&&
-                two!="98"&&
-                two!="93"&&
-                two!="94"&&
-                two!="97"&&
-                two!="20"&&
-                two!="73"
+            if (MyConstants.UZB_PHONE_NUM_PREFIX.contains(two)
             ) {
                 filledInformation = false
                 connectionDialog.showDialog(
