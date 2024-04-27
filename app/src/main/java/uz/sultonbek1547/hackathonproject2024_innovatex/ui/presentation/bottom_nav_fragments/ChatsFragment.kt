@@ -47,7 +47,6 @@ class ChatsFragment : Fragment() {
                 // Filter out the current user
                 for (user in users) {
                     if (user.id != currentUser?.id && user.listOfChattedUsersId.contains(currentUser?.id)) {
-
                         userList.add(user)
 
 

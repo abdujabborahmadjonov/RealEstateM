@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.isDigitsOnly
 import androidx.core.widget.addTextChangedListener
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -45,7 +46,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var receiverId: String
     private lateinit var receiverName: String
     private lateinit var sender: User
-    private lateinit var book: Book
+    private  var book: Book? = Book()
 
     //private lateinit var chatAdapter: ChatAdapter
 
@@ -56,7 +57,7 @@ class ChatActivity : AppCompatActivity() {
         sender = MySharedPreference.user!!
         receiverId = intent?.getStringExtra("userId").toString()
         receiverName = intent?.getStringExtra("userName").toString()
-        book = intent?.getSerializableExtra("book") as Book
+       book = intent?.getSerializableExtra("book") as Book?
 
 
         database = FirebaseDatabase.getInstance()
@@ -89,18 +90,28 @@ class ChatActivity : AppCompatActivity() {
         binding.edtMessage.isPressed = true
         binding.edtMessage.requestFocus()
 
-        binding.tvBookItemName.text = book.name
-        binding.tvBookItemAuthor.text = book.author
+        if (book != null){
+            binding.tvBookItemName.text = book!!.name
+            binding.tvBookItemAuthor.text = book!!.author
 
-        Picasso.get().load(book.imageLink)
-            .into(binding.bookItemImage, object : Callback {
-                override fun onSuccess() {
-                }
+            Picasso.get().load(book!!.imageLink)
+                .into(binding.bookItemImage, object : Callback {
+                    override fun onSuccess() {
+                    }
 
-                override fun onError(e: Exception?) {
+                    override fun onError(e: Exception?) {
 
-                }
-            })
+                    }
+                })
+        }else{
+
+            binding.bookItemContainer.visibility = View.GONE
+        }
+
+
+
+
+
 
 
         binding.edtMessage.addTextChangedListener {

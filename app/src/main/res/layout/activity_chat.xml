@@ -89,6 +89,7 @@
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
+            android:id="@+id/book_item_container"
             android:background="@color/ripple_effect_color"
             android:layout_height="?actionBarSize">
 

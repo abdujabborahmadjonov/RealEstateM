@@ -28,6 +28,6 @@ data class User(
         address = "",
         email = "",
         lastSeen = "",
-        listOfChattedUsersId = ArrayList()
+        listOfChattedUsersId = ArrayList<String>()
     )
 }
