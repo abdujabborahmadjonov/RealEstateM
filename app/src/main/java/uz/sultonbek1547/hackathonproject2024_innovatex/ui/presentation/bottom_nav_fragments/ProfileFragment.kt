@@ -32,6 +32,12 @@ class ProfileFragment : Fragment() {
 
 
         init()
+        if (user.gender=="erkak"){
+            binding.userImage.setImageResource(R.drawable.man_carton_image)
+        }else{
+            binding.userImage.setImageResource(R.drawable.girl_carton_image)
+
+        }
 
         binding.btnLogout.setOnClickListener {
 
