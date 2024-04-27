@@ -10,9 +10,10 @@
         android:layout_width="match_parent"
         app:cardBackgroundColor="@color/transparent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_5dp"
+        android:layout_marginTop="@dimen/_2dp"
+        android:layout_marginHorizontal="@dimen/_5dp"
         app:cardCornerRadius="6dp"
-        app:cardElevation="6dp">
+        app:cardElevation="3dp">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
