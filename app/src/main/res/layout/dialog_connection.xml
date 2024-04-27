@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:padding="10dp"
-            android:src="@drawable/rectangle_r10_stroke"
+            android:src="@drawable/error"
             />
 
         <TextView

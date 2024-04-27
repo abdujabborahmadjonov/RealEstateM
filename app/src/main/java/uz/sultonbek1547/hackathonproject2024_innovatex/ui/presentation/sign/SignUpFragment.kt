@@ -55,7 +55,7 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
 
     private fun filledInformation(): Boolean {
         var filledInformation: Boolean
-        val two= binding.signUpEmailEt.text.trim().substring(0,2).toInt()
+        val two= binding.signUpPhoneNumberEt.text.trim().substring(0,2).toInt()
 
         if (MyConstants.UZB_PHONE_NUM_PREFIX.contains(two)
         ) {
