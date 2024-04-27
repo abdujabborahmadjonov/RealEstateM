@@ -1,6 +1,6 @@
 package uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.fragments
 
-import android.app.AlertDialog.*
+import android.app.AlertDialog.Builder
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -23,6 +24,7 @@ import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.BottomSheetBi
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.FragmentBookInfoBinding
 import uz.sultonbek1547.hackathonproject2024_innovatex.models.Book
 import uz.sultonbek1547.hackathonproject2024_innovatex.models.User
+import uz.sultonbek1547.hackathonproject2024_innovatex.ui.main.ChatActivity
 import uz.sultonbek1547.hackathonproject2024_innovatex.utils.MySharedPreference
 
 class BookInfoFragment : Fragment() {
@@ -89,59 +91,66 @@ class BookInfoFragment : Fragment() {
             })
 
         binding.btnSendMessage.setOnClickListener {
-//            val intent = Intent(context, ChatActivity::class.java).apply {
-//                putExtra("userId", book?.userId)
-//                putExtra("userName", book?.userName)
-//            }
-//            requireActivity().startActivity(intent)
-        }
+            val intent = Intent(context, ChatActivity::class.java).apply {
+                putExtra("userId", book?.userId)
+                putExtra("userName", book?.userName)
+            }
+            requireActivity().startActivity(intent)
 
-        binding.btnUserInfo.setOnClickListener {
-            showCallOrSmsDialog(book!!.userName, book.userId)
-        }
+            binding.btnUserInfo.setOnClickListener {
 
-        binding.btnShare.setOnClickListener {
-            val sendIntent: Intent = Intent().apply {
-                action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "Kitob Nomi: ${book?.name}\nAvtor: ${book?.author}")
-                type = "text/plain"
+                findNavController().navigate(
+                    R.id.action_bookInfoFragment_to_userInfoFragment,
+                    bundleOf("user" to user)
+                )
+
+                //   showCallOrSmsDialog(book!!.userName, book.userId)
             }
 
-            val shareIntent = Intent.createChooser(sendIntent, null)
-            startActivity(shareIntent)
-        }
+            binding.btnShare.setOnClickListener {
+                val sendIntent: Intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, "Kitob Nomi: ${book?.name}\nAvtor: ${book?.author}")
+                    type = "text/plain"
+                }
 
-        CoroutineScope(Dispatchers.Main).launch {
-            MyFirebaseService().getUserById(book!!.userId)?.let {
-                user = it
+                val shareIntent = Intent.createChooser(sendIntent, null)
+                startActivity(shareIntent)
+            }
+
+            CoroutineScope(Dispatchers.Main).launch {
+                MyFirebaseService().getUserById(book!!.userId)?.let {
+                    user = it
+                }
+
+            }
+
+            binding.btnDeleteBook.setOnClickListener {
+                Builder(context, R.style.RoundedCornersDialog)
+                    .setTitle("Diqqat")
+                    .setMessage("Rostdan ham bu e'lonni o'chirmoqchimisiz?") // Specifying a listener allows you to take an action before dismissing the dialog.
+                    // The dialog is automatically dismissed when a dialog button is clicked.
+                    .setPositiveButton(
+                        "Xa"
+                    ) { dialog, which ->
+                        // Continue with delete operation
+                        if (book != null) {
+                            MyFirebaseService().deleteProduct(book, user)
+                            findNavController().popBackStack()
+                            Toast.makeText(
+                                context,
+                                "E'lon muvafaqqiyatli o'chirildi",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    } // A null listener allows the button to dismiss the dialog and take no further action.
+                    .setNegativeButton("Yo'q", null)
+                    .show()
+
+
             }
 
         }
-
-        binding.btnDeleteBook.setOnClickListener {
-            Builder(context, R.style.RoundedCornersDialog)
-                .setTitle("Diqqat")
-                .setMessage("Rostdan ham bu e'lonni o'chirmoqchimisiz?") // Specifying a listener allows you to take an action before dismissing the dialog.
-                // The dialog is automatically dismissed when a dialog button is clicked.
-                .setPositiveButton("Xa"
-                ) { dialog, which ->
-                    // Continue with delete operation
-                    if (book != null) {
-                        MyFirebaseService().deleteProduct(book,user)
-                        findNavController().popBackStack()
-                        Toast.makeText(
-                            context,
-                            "E'lon muvafaqqiyatli o'chirildi",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                } // A null listener allows the button to dismiss the dialog and take no further action.
-                .setNegativeButton("Yo'q", null)
-                .show()
-
-
-        }
-
     }
 
     private fun showCallOrSmsDialog(userName: String, userPhoneNumber: String) {
@@ -175,5 +184,5 @@ class BookInfoFragment : Fragment() {
         bottomSheetDialog.show()
 
     }
-
 }
+
