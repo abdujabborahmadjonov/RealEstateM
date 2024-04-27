@@ -28,7 +28,7 @@
                 android:layout_marginEnd="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/man_carton_image" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="0dp"
