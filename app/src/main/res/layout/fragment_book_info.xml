@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/example_container"
-    android:background="@color/light_gray"
+    android:background="@color/white"
     tools:context=".ui.presentation.fragments.BookInfoFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -36,8 +36,6 @@
             android:id="@+id/item_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="#a3c9a8"
-            android:background="#a3c9a8"
             android:src="@drawable/ic_launcher_background"
             android:scaleType="fitXY"
             />
@@ -94,7 +92,7 @@
                     android:layout_marginEnd="-5dp"
                     android:layout_width="20sp"
                     android:layout_height="20sp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:src="@drawable/ic_person"/>
                 <TextView
 
                     android:id="@+id/tv_book_author"
@@ -130,7 +128,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        android:src="@drawable/ic_launcher_background" />
+                        android:src="@drawable/ic_person" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -184,7 +182,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        android:src="@drawable/ic_launcher_background" />
+                        android:src="@drawable/baseline_share_24" />
 
                     <TextView
                         android:layout_width="match_parent"

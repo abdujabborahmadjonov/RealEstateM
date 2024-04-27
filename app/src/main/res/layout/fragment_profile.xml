@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/light_gray"
     tools:context="ui.presentation.bottom_nav_fragments.ProfileFragment">
 
     <ScrollView
@@ -27,15 +26,15 @@
                 app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
                 app:strokeWidth="3dp"
                 app:strokeColor="@color/dark_orange"
-                android:padding="3dp"
                 android:scaleType="centerCrop"
+                android:padding="@dimen/_5dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/tv_user_name"
-                android:src="@drawable/ic_launcher_background"/>
+                android:src="@drawable/man_carton_image"/>
 
 
 
@@ -88,12 +87,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/btn_post_background"
+                android:background="@drawable/bacground_border"
+                android:backgroundTint="@color/dark_orange"
                 android:text="E'lon joylashtirish"
                 android:layout_marginStart="15dp"
                 android:foreground="?selectableItemBackground"
                 android:layout_marginEnd="15dp"
-                android:textColor="@color/dark_orange"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"

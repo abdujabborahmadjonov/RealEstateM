@@ -33,7 +33,7 @@
                     android:layout_gravity="start"
                     android:padding="1dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background"
+                    android:src="@drawable/man_carton_image"
                     app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
                     app:strokeColor="@color/dark_orange"
                     app:strokeWidth="1dp" />
