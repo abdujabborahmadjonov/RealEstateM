@@ -55,7 +55,7 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
 
     private fun filledInformation(): Boolean {
         var filledInformation: Boolean
-        val two= binding.signUpEmailEt.text.trim().substring(0,2).toInt()
+        val two= binding.signUpPhoneNumberEt.text.trim().substring(0,2).toInt()
 
         if (MyConstants.UZB_PHONE_NUM_PREFIX.contains(two)
         ) {
@@ -63,7 +63,7 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
         } else if (binding.signUpPhoneNumberEt.text.toString().replace("-", "").length ==
             binding.signUpPhoneNumberEt.text.trim().length &&
             binding.signUpEmailEt.text.toString().isEmpty() &&
-            binding.signUpPasswordEt.text.length >= 8 &&
+            binding.signUpPasswordEt.text.isNotEmpty() &&
             binding.signUpPasswordEt.text.toString() == binding.signUpConfirmPasswordEt.toString()
         ) {
             filledInformation = true
@@ -86,7 +86,7 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
                     Constants.IS_NOT_CHECKED,
                     "Gmail pochtangizni to'g'ri\nkriting!"
                 )
-            } else if (binding.signUpPasswordEt.text.length < 8) {
+            } else if (binding.signUpPasswordEt.text.isEmpty()) {
                 filledInformation = false
                 connectionDialog.showDialog(
                     "",
