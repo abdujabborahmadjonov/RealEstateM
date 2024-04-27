@@ -96,16 +96,19 @@ class BookInfoFragment : Fragment() {
                 putExtra("userName", book?.userName)
             }
             requireActivity().startActivity(intent)
+        }
+        binding.btnUserInfo.setOnClickListener {
 
-            binding.btnUserInfo.setOnClickListener {
+            Toast.makeText(context, "userInfo", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(
+                R.id.action_bookInfoFragment_to_userInfoFragment,
+                bundleOf("user" to user)
+            )
 
-                findNavController().navigate(
-                    R.id.action_bookInfoFragment_to_userInfoFragment,
-                    bundleOf("user" to user)
-                )
 
-                //   showCallOrSmsDialog(book!!.userName, book.userId)
-            }
+            //   showCallOrSmsDialog(book!!.userName, book.userId)
+        }
+
 
             binding.btnShare.setOnClickListener {
                 val sendIntent: Intent = Intent().apply {
@@ -150,7 +153,7 @@ class BookInfoFragment : Fragment() {
 
             }
 
-        }
+        
     }
 
     private fun showCallOrSmsDialog(userName: String, userPhoneNumber: String) {
