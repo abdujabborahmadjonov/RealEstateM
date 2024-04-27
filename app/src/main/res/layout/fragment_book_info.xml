@@ -1,14 +1,266 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/example_container"
+    android:background="@color/light_gray"
     tools:context=".ui.presentation.fragments.BookInfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:title="Sultonbek Tulanov"
+        app:titleTextColor="@color/dark_orange"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        android:elevation="1dp"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
+        android:fitsSystemWindows="true" />
 
-</FrameLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        app:cardElevation="8dp"
+        android:layout_weight="0.9"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="15dp">
+
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="#a3c9a8"
+            android:background="#a3c9a8"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="fitXY"
+            />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.1"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="false"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_image">
+
+            <TextView
+                android:id="@+id/tv_book_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fantastika"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/dark_orange" />
+
+
+            <TextView
+                android:id="@+id/tv_book_name"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="Graf Monte Kristo"
+                android:textSize="25sp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/yellow"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="25sp">
+                <ImageView
+                    android:layout_marginEnd="-5dp"
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:src="@drawable/ic_launcher_background"/>
+                <TextView
+
+                    android:id="@+id/tv_book_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text=" Aleksandr Dyuma"
+                    android:textSize="18sp"
+                    android:textColor="@color/dark_orange" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:layout_height="?actionBarSize">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:id="@+id/btn_user_info"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
+                    android:orientation="vertical"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_launcher_background" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:singleLine="true"
+                        android:textColor="#3f5e5a"
+                        android:text="Foydalanuvchi"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <Button
+                    android:id="@+id/btn_send_message"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/dark_orange"
+                    android:text="Taklif yuborish"
+                    android:layout_weight="1.5" />
+                <Button
+                    android:id="@+id/btn_delete_book"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:visibility="gone"
+                    android:backgroundTint="#7C1710"
+                    android:layout_marginStart="15dp"
+                    android:text="E'lonni o'chirish"
+                    android:layout_weight="2" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/btn_share"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:foreground="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_launcher_background" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:singleLine="true"
+                        android:textColor="#3f5e5a"
+                        android:text="Ulashish"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kitob haqida"
+                android:textSize="20sp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/dark_orange"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_book_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Asarning bosh qahramoni, dengizchi Edmon Dantes, kema kapitanining oʻlim oldi vasiyatini bajarish maqsadida Parijga xat bilan keladi. Portga kelganidan soʻng Dantes, qoʻshni qishloqdagi Mersedes ismli qizga uylanishni niyat qiladi. Lekin dushmanlarining harakatlari sababli u If qasriga qamaladi. U yerda Dantes Faria ismli abbat bilan tanishadi. Faria gʻoyat katta xazina koʻmilgan joyni biladi va oʻlimidan oldin bu sirni Dantesga ochadi. Dantes qamoqdan qochadi, xazinani topadi va dushmanlaridan qasos oladi.Asarning bosh qahramoni, dengizchi Edmon Dantes, kema kapitanining oʻlim oldi vasiyatini bajarish maqsadida Parijga xat bilan keladi. Portga kelganidan soʻng Dantes, qoʻshni qishloqdagi Mersedes ismli qizga uylanishni niyat qiladi. Lekin dushmanlarining harakatlari sababli u If qasriga qamaladi. U yerda Dantes Faria ismli abbat bilan tanishadi. Faria gʻoyat katta xazina koʻmilgan joyni biladi va oʻlimidan oldin bu sirni Dantesga ochadi. Dantes qamoqdan qochadi, xazinani topadi va dushmanlaridan qasos oladi."
+                android:textSize="16sp"
+                android:paddingStart="15dp"
+                android:layout_marginTop="5dp"
+                android:lineSpacingExtra="1dp"
+                android:paddingEnd="15dp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/dark_orange"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textStyle="normal" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/container_btn_delete"
+        android:layout_width="match_parent"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:elevation="15dp"
+        android:background="@color/white"
+        android:padding="2dp"
+        android:layout_height="?actionBarSize">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_delete_product"
+            android:layout_width="match_parent"
+            android:background="@drawable/btn_back"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:foreground="?selectableItemBackground"
+            android:textColor="@color/dark_orange"
+            android:padding="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="5dp"
+            android:textStyle="bold"
+            android:text="E'lonni o'chirish" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
