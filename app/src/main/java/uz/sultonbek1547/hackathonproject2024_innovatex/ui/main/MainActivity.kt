@@ -73,10 +73,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        Toast.makeText(this, "${deviceUser}ewrtryu", Toast.LENGTH_SHORT).show()
-
-        deviceUser.lastSeen = SimpleDateFormat("dd.MM.yyyy HH::MM").format(Date())
-        deviceUser.let { MyFirebaseService().postUser(it) }
+        if (MySharedPreference.isUserAuthenticated == true) {
+            Toast.makeText(this, "${deviceUser}ewrtryu", Toast.LENGTH_SHORT).show()
+            deviceUser.lastSeen = SimpleDateFormat("dd.MM.yyyy HH::MM").format(Date())
+            deviceUser.let { MyFirebaseService().postUser(it) }
+        }
 
     }
 }

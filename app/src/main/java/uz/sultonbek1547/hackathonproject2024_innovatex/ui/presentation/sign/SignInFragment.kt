@@ -65,8 +65,6 @@ class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
         }
 
         binding.loginSignInBtn.setOnClickListener {
-    //salom
-
 
             myCustomSnackBar = MyCustomSnackBar(it, layoutInflater)
             getToken()
@@ -85,11 +83,9 @@ class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
                 }
             }
             listOfUsers = list
-            Log.i("Library12", "getUsers: ${list.toString()}")
 
         } catch (e: java.lang.Exception) {
             withContext(Dispatchers.Main) {
-                Log.i("Library12", "getUsers: ${e.message}")
             }
         }
     }
@@ -98,11 +94,9 @@ class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         connectivityManager.observe(viewLifecycleOwner) { isConnected = it }
-        FirebaseApp.initializeApp(requireContext())
     }
 
     private fun getToken() {
-
         if (isConnected) {
             val password = binding.passwordEt.text.toString()
             val phoneNumber = binding.phoneNumberEt.text.toString()
