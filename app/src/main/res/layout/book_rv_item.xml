@@ -1,142 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="3dp"
-    android:clickable="true"
-    android:focusable="true"
-    android:id="@+id/card_view"
-    android:backgroundTint="#a3c9a8"
-    android:foreground="?selectableItemBackground"
-    app:cardElevation="1dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardUseCompatPadding="true">
+    >
 
-
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="start">
+        app:cardBackgroundColor="@color/transparent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="6dp">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:padding="10dp"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-                app:strokeWidth="1dp"
-                android:id="@+id/only_view_img_add"
-                app:strokeColor="@color/dark_orange"
-                android:padding="1dp"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:scaleType="centerCrop"
-                android:layout_gravity="start"
-                android:src="@drawable/ic_launcher_background" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/bacground_border"
+            android:gravity="start"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:gravity="start"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="10dp">
 
-                <TextView
-                    android:id="@+id/tv_user_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sultonbek Tulanov"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="2dp"
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/only_view_img_add"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="start"
-                    app:layout_constraintTop_toTopOf="@id/only_view_tv_select_image_container"
-                    android:textSize="16sp"
-                    android:gravity="center"
-                    android:textColor="@color/dark_orange"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_user_posted_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mart 21, 16:46"
-                    android:layout_marginStart="10dp"
-                    android:layout_gravity="start"
-                    android:layout_marginBottom="10dp"
-                    app:layout_constraintTop_toTopOf="@id/only_view_tv_select_image_container"
-                    android:textSize="13sp"
-                    android:gravity="center"
-                    android:textColor="@color/gray" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:paddingBottom="10dp"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"
-            android:layout_height="90dp">
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="50dp"
-                app:cardCornerRadius="5dp"
-                android:src="@drawable/ic_launcher_background"
-                android:layout_marginEnd="10dp">
-
-                <ImageView
-                    android:id="@+id/item_image"
-                    android:layout_width="100dp"
+                    android:padding="1dp"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/ic_launcher_background"
-                    android:background="@color/gray"
-                    android:scaleType="fitXY"
-                    android:layout_height="match_parent" />
-                <ProgressBar
-                    android:id="@+id/progress_bar"
-                    android:visibility="visible"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="center"
-                    android:indeterminate="true"
-                    android:indeterminateTint="#a3c9a8"
-                    android:layout_height="wrap_content" />
-            </androidx.cardview.widget.CardView>
+                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                    app:strokeColor="@color/dark_orange"
+                    app:strokeWidth="1dp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/gilroy_semibold"
+                        android:gravity="center"
+                        android:text="Sultonbek Tulanov"
+                        android:textColor="@color/dark_orange"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="@id/only_view_tv_select_image_container" />
+
+                    <TextView
+                        android:id="@+id/tv_user_posted_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:gravity="center"
+                        android:text="Mart 21, 16:46"
+                        android:textColor="@color/gray"
+                        android:textSize="13sp"
+                        app:layout_constraintTop_toTopOf="@id/only_view_tv_select_image_container" />
+                </LinearLayout>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:layout_height="90dp"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp">
 
-                <TextView
 
-                    android:id="@+id/tv_book_name"
-                    android:layout_width="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_launcher_background"
+                    app:cardCornerRadius="5dp">
+
+                    <ImageView
+                        android:id="@+id/item_image"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_launcher_background" />
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:indeterminateTint="#a3c9a8"
+                        android:visibility="visible" />
+                </androidx.cardview.widget.CardView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Graf Monte Kristo"
-                    android:layout_gravity="start"
-                    android:textSize="18sp"
-                    android:textColor="@color/dark_orange"
-                    android:textStyle="bold" />
+                    android:orientation="vertical">
 
-                <TextView
+                    <TextView
 
-                    android:id="@+id/tv_book_author"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Aleksandr Dyuma"
-                    android:layout_gravity="start"
-                    android:textSize="15sp"
-                    android:textColor="@color/gray" />
+                        android:id="@+id/tv_book_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:fontFamily="@font/gilroy_extra_bold"
+                        android:text="Graf Monte Kristo"
+                        android:textColor="@color/dark_orange"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/tv_book_author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:text="Aleksandr Dyuma"
+                        android:textColor="@color/gray"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
-        </LinearLayout>
 
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-</androidx.cardview.widget.CardView>
+</LinearLayout>
