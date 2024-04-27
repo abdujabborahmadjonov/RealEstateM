@@ -55,7 +55,6 @@ class SignInFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
         connectivityManager = ConnectivityManager(requireContext())
         getUsers()
 
-        MyFirebaseService().postUser(User())
 
 
 

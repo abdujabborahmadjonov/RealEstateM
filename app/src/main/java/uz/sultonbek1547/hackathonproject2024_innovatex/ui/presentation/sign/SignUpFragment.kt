@@ -34,7 +34,7 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
             findNavController().navigate(R.id.signInFragment)
         }
         binding.signUpTwoNextBtn.setOnClickListener {
-            if (!filledInformation()) {
+            if (filledInformation()) {
                 Snackbar.make(binding.root, "Good Job", 2000).show()
                 Constants.number = binding.signUpPhoneNumberEt.text.toString()
                 Constants.password = binding.signUpPasswordEt.text.toString()
@@ -55,12 +55,24 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
 
     private fun filledInformation(): Boolean {
         var filledInformation: Boolean
+        var two= binding.signUpEmailEt.text.trim().substring(0,2)
 
-        if (binding.signUpPhoneNumberEt.text.toString().replace("-", "").length ==
-            binding.signUpPhoneNumberEt.text.trim().length &&
+        if ((binding.signUpPhoneNumberEt.text.toString().replace("-", "").length ==
+                    binding.signUpPhoneNumberEt.text.trim().length) &&
             binding.signUpEmailEt.text.toString().contains("@gmail.com") &&
-            binding.signUpPasswordEt.text.length >= 8 &&
-            binding.signUpPasswordEt.text.toString() == binding.signUpConfirmPasswordEt.toString()
+            (binding.signUpPasswordEt.text.length >= 8) && (two == "91") &&
+            (two == "77") &&
+            (two == "88") &&
+            (two == "90") &&
+            (two == "95") &&
+            (two == "99") &&
+            (two == "98") &&
+            (two == "93") &&
+            (two == "94") &&
+            (two == "97") &&
+            (two == "20") &&
+            (two == "73") &&
+            (binding.signUpPasswordEt.text.toString() == binding.signUpConfirmPasswordEt.toString())
         ) {
             filledInformation = true
         } else if (binding.signUpPhoneNumberEt.text.toString().replace("-", "").length ==
@@ -74,7 +86,18 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
             filledInformation = true
             if (binding.signUpPhoneNumberEt.text.toString()
                     .isEmpty() || binding.signUpPhoneNumberEt.text.toString()
-                    .replace("-", "").length != binding.signUpPhoneNumberEt.text.trim().length
+                    .replace("-", "").length != binding.signUpPhoneNumberEt.text.trim().length&&  two=="91"&&
+                two!="77"&&
+                two!="88"&&
+                two!="90"&&
+                two!="95"&&
+                two!="99"&&
+                two!="98"&&
+                two!="93"&&
+                two!="94"&&
+                two!="97"&&
+                two!="20"&&
+                two!="73"
             ) {
                 filledInformation = false
                 connectionDialog.showDialog(

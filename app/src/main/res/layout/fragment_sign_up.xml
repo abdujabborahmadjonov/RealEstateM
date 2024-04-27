@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:mask="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
 
     tools:context=".ui.presentation.sign.SignUpFragment">
@@ -32,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:fontFamily="@font/gilroy_semibold"
-        android:text="Registration"
+        android:text="Ro'yxatdan o'tish"
         android:textColor="@color/dark_orange"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/sign_up_phone_number_et"
@@ -47,11 +48,13 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/rectangle_r10_stroke"
         android:fontFamily="@font/gilroy_regular"
-        android:hint="Phone number"
+        android:typeface="monospace"
         android:inputType="phone|numberSigned"
         android:paddingStart="120dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
+        android:hint="Telefon raqami"
+        android:maxLength="9"
         android:textColorHint="@color/gray_text_color"
         app:layout_constraintBottom_toTopOf="@+id/sign_up_email_et"
         app:layout_constraintEnd_toEndOf="@+id/sign_up_email_et"
@@ -102,7 +105,7 @@
         android:drawableTint="@color/dark_orange"
         android:ems="10"
         android:fontFamily="@font/gilroy_medium"
-        android:hint="Email (not compulsory)"
+        android:hint="Email (majburiy emas)"
         android:inputType="textEmailAddress"
         android:paddingStart="15dp"
         android:paddingTop="20dp"
@@ -123,7 +126,7 @@
         android:drawablePadding="15dp"
         android:drawableTint="@color/dark_orange"
         android:fontFamily="@font/gilroy_regular"
-        android:hint="Find difficult password"
+        android:hint="Murakkab parol toping"
         android:inputType="textPassword"
         android:paddingStart="15dp"
         android:paddingTop="20dp"
@@ -146,7 +149,7 @@
         android:drawablePadding="15dp"
         android:drawableTint="@color/dark_orange"
         android:fontFamily="@font/gilroy_regular"
-        android:hint="Retype your password"
+        android:hint="Parolingizni qaytarib yozing"
         android:inputType="textPassword"
         android:paddingStart="15dp"
         android:paddingTop="20dp"
@@ -242,7 +245,7 @@
         android:gravity="center"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        android:text="Next"
+        android:text="Keyingi"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/sign_up_three_sign_in_layout"
@@ -264,7 +267,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gilroy_medium"
-            android:text="Have you registered before ?" />
+            android:text="Oldin ro'yxatdan o'tganmisiz ?" />
 
         <TextView
             android:id="@+id/sign_up_sign_in_btn"
@@ -273,7 +276,7 @@
             android:layout_marginStart="5dp"
             android:layout_weight="1"
             android:fontFamily="@font/gilroy_bold"
-            android:text="Yes I registered"
+            android:text="Ha, ro'yhatdan o'tganman"
             android:textColor="@color/dark_orange"
             android:textSize="16sp" />
     </LinearLayout>
