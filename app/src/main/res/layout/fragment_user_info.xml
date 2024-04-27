@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.presentation.fragments.UserInfoFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/user_image"
+                app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/dark_orange"
+                android:padding="3dp"
+                android:scaleType="centerCrop"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/ic_launcher_background" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sultonbek Tulanov"
+                    android:textSize="22dp"
+                    android:gravity="start"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_user_last_seen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="so'ngi faollik: kecha 19:06"
+                    android:textSize="@dimen/_18dp"
+                    android:gravity="start"
+                    android:textStyle="normal"
+                    android:textColor="@color/black" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Info"
+            android:padding="@dimen/_5dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_20dp"
+            android:textSize="19dp"
+            android:gravity="start"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/btn_call"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_user_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+998907801547"
+                android:padding="@dimen/_15dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_20dp"
+                android:textSize="@dimen/_18dp"
+                android:gravity="start"
+                android:textStyle="normal"
+                android:textColor="@color/black" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:layout_marginEnd="@dimen/_5dp"
+                android:layout_marginStart="@dimen/_5dp"
+                android:background="@color/black" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_user_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fargona shahar"
+                android:padding="@dimen/_15dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_20dp"
+                android:textSize="@dimen/_18dp"
+                android:gravity="start"
+                android:textStyle="normal"
+                android:textColor="@color/black" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:layout_marginEnd="@dimen/_5dp"
+                android:layout_marginStart="@dimen/_5dp"
+                android:background="@color/black" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_user_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18"
+                android:padding="@dimen/_15dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_20dp"
+                android:textSize="@dimen/_18dp"
+                android:gravity="start"
+                android:textStyle="normal"
+                android:textColor="@color/black" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:layout_marginEnd="@dimen/_5dp"
+                android:layout_marginStart="@dimen/_5dp"
+                android:background="@color/black" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_user_posts_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E'lonlar soni: 5"
+                android:padding="@dimen/_15dp"
+                android:layout_marginStart="@dimen/_20dp"
+                android:textSize="@dimen/_20dp"
+                android:gravity="start"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:layout_marginEnd="@dimen/_5dp"
+                android:layout_marginStart="@dimen/_5dp"
+                android:background="@color/black" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

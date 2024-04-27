@@ -57,6 +57,14 @@
         <argument
             android:name="position"
             app:argType="string" />
+        <action
+            android:id="@+id/action_bookInfoFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.fragments.UserInfoFragment"
+        android:label="fragment_user_info"
+        tools:layout="@layout/fragment_user_info" />
 </navigation>
