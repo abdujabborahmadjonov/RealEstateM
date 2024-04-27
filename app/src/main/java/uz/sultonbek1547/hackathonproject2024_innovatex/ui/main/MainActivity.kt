@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         MySharedPreference.init(this)
 
-        MyConstants.deviceUser = MySharedPreference.user!!
 
         Toast.makeText(this, "${MySharedPreference.lastTimeUserEntered}", Toast.LENGTH_SHORT).show()
 
@@ -33,6 +32,8 @@ class MainActivity : AppCompatActivity() {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             })
         } else {
+            MyConstants.deviceUser = MySharedPreference.user!!
+
             setContentView(binding.root)
             setupBottomNavigationBar()
         }
@@ -73,11 +74,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        if (MySharedPreference.isUserAuthenticated == true) {
-            Toast.makeText(this, "${deviceUser}ewrtryu", Toast.LENGTH_SHORT).show()
-            deviceUser.lastSeen = SimpleDateFormat("dd.MM.yyyy HH::MM").format(Date())
-            deviceUser.let { MyFirebaseService().postUser(it) }
-        }
+//        if (MySharedPreference.isUserAuthenticated == true) {
+//            Toast.makeText(this, "${deviceUser}ewrtryu", Toast.LENGTH_SHORT).show()
+//            deviceUser.lastSeen = SimpleDateFormat("dd.MM.yyyy HH::MM").format(Date())
+//            deviceUser.let { MyFirebaseService().postUser(it) }
+//        }
 
     }
 }
