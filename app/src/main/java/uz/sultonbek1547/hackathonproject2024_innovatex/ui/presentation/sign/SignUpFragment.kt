@@ -1,16 +1,13 @@
 package uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.sign
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 import uz.sultonbek1547.hackathonproject2024_innovatex.R
 import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyConstants
-
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.FragmentSignUpBinding
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectionDialog
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.constants.ConnectivityManager
@@ -24,7 +21,7 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
     val binding by lazy { FragmentSignUpBinding.inflate(layoutInflater) }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         connectionDialog = ConnectionDialog(requireContext(), this)
         connectivityManager = ConnectivityManager(requireContext())
@@ -55,7 +52,10 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
 
     private fun filledInformation(): Boolean {
         var filledInformation: Boolean
-        val two= binding.signUpPhoneNumberEt.text.trim().substring(0,2).toInt()
+        var two = 0
+        if (binding.signUpPhoneNumberEt.text.length > 2){
+             two = binding.signUpPhoneNumberEt.text.trim().substring(0, 2).toInt()
+        }
 
         if (MyConstants.UZB_PHONE_NUM_PREFIX.contains(two)
         ) {
@@ -63,7 +63,7 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
         } else if (binding.signUpPhoneNumberEt.text.toString().replace("-", "").length ==
             binding.signUpPhoneNumberEt.text.trim().length &&
             binding.signUpEmailEt.text.toString().isEmpty() &&
-            binding.signUpPasswordEt.text.length >= 8 &&
+            binding.signUpPasswordEt.text.isNotEmpty() &&
             binding.signUpPasswordEt.text.toString() == binding.signUpConfirmPasswordEt.toString()
         ) {
             filledInformation = true
@@ -86,7 +86,7 @@ class SignUpFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
                     Constants.IS_NOT_CHECKED,
                     "Gmail pochtangizni to'g'ri\nkriting!"
                 )
-            } else if (binding.signUpPasswordEt.text.length < 8) {
+            } else if (binding.signUpPasswordEt.text.isEmpty()) {
                 filledInformation = false
                 connectionDialog.showDialog(
                     "",
