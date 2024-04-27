@@ -30,6 +30,7 @@ class ProfileFragment : Fragment() {
         context?.let { MySharedPreference.init(it) }
         user = MySharedPreference.user!!
 
+
         init()
 
         binding.btnLogout.setOnClickListener {

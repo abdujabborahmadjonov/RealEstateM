@@ -28,10 +28,18 @@
         <action
             android:id="@+id/action_profileFragment_to_postFragment"
             app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_aboutAppFragment"
+            app:destination="@id/aboutAppFragment" />
     </fragment>
     <fragment
         android:id="@+id/postFragment"
         android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.fragments.PostFragment"
         android:label="fragment_post"
         tools:layout="@layout/fragment_post" />
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.fragments.AboutAppFragment"
+        android:label="fragment_about_app"
+        tools:layout="@layout/fragment_about_app" />
 </navigation>

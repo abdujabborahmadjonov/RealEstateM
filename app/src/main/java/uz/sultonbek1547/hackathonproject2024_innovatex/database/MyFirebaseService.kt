@@ -20,7 +20,7 @@ import uz.sultonbek1547.hackathonproject2024_innovatex.utils.MySharedPreference
 class MyFirebaseService {
     private val productsReference = Firebase.firestore.collection("app_books")
     private val usersReference = Firebase.firestore.collection("app_users")
-    private val imagesReference = FirebaseStorage.getInstance().getReference("productImages")
+    private val imagesReference = FirebaseStorage.getInstance().getReference("app_Images")
 
     fun removeDuplicateBooks() = CoroutineScope(Dispatchers.IO).launch {
         try {
@@ -67,7 +67,7 @@ class MyFirebaseService {
             // Update the product object with the generated ID
             val updatedUser = user.copy(id = userId)
             // Update the document in Firestore with the updated product object
-            updatedUser.also { MyConstants.user = it }
+            updatedUser.also { MyConstants.deviceUser = it }
             MySharedPreference.user = updatedUser
             usersReference.document(userId).set(updatedUser).await()
         } catch (e: Exception) {

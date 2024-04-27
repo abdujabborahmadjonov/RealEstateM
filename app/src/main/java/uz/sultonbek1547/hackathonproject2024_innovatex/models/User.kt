@@ -13,6 +13,7 @@ data class User(
     val gender: String = "",
     val address: String = "",
     val email: String = "",
+    var lastSeen:String = "",
     val listOfChattedUsersId:ArrayList<String> = ArrayList()
 ): Serializable {
     constructor(): this(
@@ -26,6 +27,7 @@ data class User(
         gender = "",
         address = "",
         email = "",
+        lastSeen = "",
         listOfChattedUsersId = ArrayList()
     )
 }

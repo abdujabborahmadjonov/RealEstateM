@@ -19,6 +19,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyFirebaseService
@@ -224,9 +225,11 @@ class PostFragment : Fragment() {
 
     private suspend fun saveImagesToFirebase(): String {
         imageId = UUID.randomUUID().toString()
+        withContext(Main){
 
+            Toast.makeText(context, "posting image", Toast.LENGTH_SHORT).show()
+        }
         imageLink = MyFirebaseService().postImageToStorage(imageId, imageUri)
-
 
         return imageLink
     }

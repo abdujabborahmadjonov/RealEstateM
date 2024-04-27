@@ -81,7 +81,9 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
                     "",
                     gen,
                     address,
-                    email
+                    email,
+                    "",
+                    ArrayList()
                 )
 
                 addUser(user)

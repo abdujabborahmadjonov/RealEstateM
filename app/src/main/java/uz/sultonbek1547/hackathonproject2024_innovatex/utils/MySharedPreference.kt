@@ -38,6 +38,13 @@ object MySharedPreference {
                 it.putBoolean("userState", value)
             }
         }
+    var lastTimeUserEntered: String?
+        get() = preferences.getString("lastSeen", "yaqinda onlayn edi")
+        set(value) = preferences.edit {
+            if (value != null) {
+                it.putString("lastSeen", value)
+            }
+        }
 
 
     var user: User?

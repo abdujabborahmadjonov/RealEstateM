@@ -156,7 +156,7 @@
                     android:layout_height="1dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@color/light_gray" />
+                    android:background="@color/darker_gray" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -185,7 +185,7 @@
                     android:layout_height="1dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@color/light_gray" />
+                    android:background="@color/darker_gray" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -223,7 +223,7 @@
                     android:layout_height="1dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@color/light_gray" />
+                    android:background="@color/darker_gray" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -258,7 +258,7 @@
                     android:layout_height="1dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@color/light_gray" />
+                    android:background="@color/darker_gray" />
 
                 <TextView
                     android:id="@+id/btn_logout"
