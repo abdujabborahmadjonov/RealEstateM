@@ -120,14 +120,17 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
 
     private fun selectGen(isMan: Boolean) {
         genIsMan = if (isMan) {
-            binding.signUpGenManBtn.background.setTint(requireContext().getColor(R.color.colorPrimary))
+            binding.signUpGenManBtn.background.setTint(requireContext().getColor(R.color.dark_orange))
+            binding.signUpSelectedImage.setImageResource(R.drawable.man_carton_image)
             binding.signUpGenGirlBtn.background.setTint(requireContext().getColor(R.color.not_active_gray))
             binding.signUpGenManBtn.setTextColor(Color.WHITE)
             binding.signUpGenGirlBtn.setTextColor(Color.BLACK)
             true
         } else {
             binding.signUpGenManBtn.background.setTint(requireContext().getColor(R.color.not_active_gray))
-            binding.signUpGenGirlBtn.background.setTint(requireContext().getColor(R.color.colorPrimary))
+            binding.signUpGenGirlBtn.background.setTint(requireContext().getColor(R.color.dark_orange))
+            binding.signUpSelectedImage.setImageResource(R.drawable.girl_carton_image)
+
             binding.signUpGenManBtn.setTextColor(Color.BLACK)
             binding.signUpGenGirlBtn.setTextColor(Color.WHITE)
             false
