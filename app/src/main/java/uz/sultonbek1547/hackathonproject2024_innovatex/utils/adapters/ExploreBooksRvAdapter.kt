@@ -13,6 +13,7 @@ import uz.sultonbek1547.hackathonproject2024_innovatex.R
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.BookRvItemBinding
 import uz.sultonbek1547.hackathonproject2024_innovatex.models.Book
 
+
 class ExploreBooksRvAdapter(val function: (Book, ImageView, TextView, TextView, TextView, TextView, Int) -> Unit) :
     RecyclerView.Adapter<ExploreBooksRvAdapter.Vh>() {
 
@@ -30,6 +31,7 @@ class ExploreBooksRvAdapter(val function: (Book, ImageView, TextView, TextView, 
             itemRvBinding.tvBookAuthor.transitionName = book.author + "$position"
             itemRvBinding.tvUserName.transitionName = book.userName + "$position"
             itemRvBinding.tvUserPostedDate.transitionName = book.description + "$position"
+            itemRvBinding.sotildi.text = "${kotlin.random.Random.nextInt(1,1000).toInt()} odam yoqtirdi"
 
             if (book.userGender == "erkak"){
                 itemRvBinding.userImage.setImageResource(R.drawable.man_carton_image)

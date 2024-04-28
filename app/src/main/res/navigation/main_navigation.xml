@@ -71,4 +71,9 @@
         android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.fragments.UserInfoFragment"
         android:label="fragment_user_info"
         tools:layout="@layout/fragment_user_info" />
+    <fragment
+        android:id="@+id/analysticsFragment"
+        android:name="uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.fragments.AnalysticsFragment"
+        android:label="fragment_analystics"
+        tools:layout="@layout/fragment_analystics" />
 </navigation>

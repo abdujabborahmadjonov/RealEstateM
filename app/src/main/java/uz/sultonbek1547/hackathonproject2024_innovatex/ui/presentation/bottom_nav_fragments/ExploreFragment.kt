@@ -35,6 +35,11 @@ class ExploreFragment : Fragment() {
         booksViewModel = ViewModelProvider(this, viewModelFactory).get(MyBooksViewModel::class.java)
         initRecyclerView()
 
+        binding.swiperefresh.setOnRefreshListener {
+            initRecyclerView()
+            booksViewModel = ViewModelProvider(this, viewModelFactory).get(MyBooksViewModel::class.java)
+            binding.swiperefresh.isRefreshing = false
+        }
 
         return binding.root
     }

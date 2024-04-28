@@ -38,6 +38,9 @@ class ProfileFragment : Fragment() {
             binding.userImage.setImageResource(R.drawable.girl_carton_image)
 
         }
+        binding.btnAboutApp.setOnClickListener{
+            findNavController().navigate(R.id.aboutAppFragment)
+        }
 
         binding.btnLogout.setOnClickListener {
 

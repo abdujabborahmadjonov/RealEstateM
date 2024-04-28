@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import uz.sultonbek1547.hackathonproject2024_innovatex.R
 import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyFirebaseService
 import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyRemoteRepository
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.FragmentMyBooksBinding
@@ -33,6 +34,9 @@ class MyBooksFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentMyBooksBinding.inflate(layoutInflater, container, false)
+        binding.buttonBarcha.setOnClickListener{
+            findNavController().navigate(R.id.analysticsFragment)
+        }
 
         val viewModelFactory = MyViewModelFactory(MyRemoteRepository(MyFirebaseService()))
         booksViewModel = ViewModelProvider(this, viewModelFactory).get(MyBooksViewModel::class.java)

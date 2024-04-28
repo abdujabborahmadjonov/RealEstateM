@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -19,13 +20,16 @@ import uz.sultonbek1547.hackathonproject2024_innovatex.models.User
 import uz.sultonbek1547.hackathonproject2024_innovatex.ui.main.ChatActivity
 import uz.sultonbek1547.hackathonproject2024_innovatex.utils.MySharedPreference
 import uz.sultonbek1547.hackathonproject2024_innovatex.utils.adapters.UsersAdapter
+import java.util.Locale
 
 
 class ChatsFragment : Fragment() {
 
     private lateinit var binding: FragmentChatsBinding
     private lateinit var databse: FirebaseDatabase
+    private lateinit var userList: ArrayList<User>
     private lateinit var usersAdapter: UsersAdapter
+
     private lateinit var reference: DatabaseReference
 
     override fun onCreateView(
@@ -36,7 +40,8 @@ class ChatsFragment : Fragment() {
         databse = FirebaseDatabase.getInstance()
         val currentUser = MySharedPreference.user
 
-        val userList = ArrayList<User>()
+         userList = ArrayList<User>()
+
         CoroutineScope(Dispatchers.IO).launch {
             // Fetch users from Firebase
             val users = MyFirebaseService().getUsersFromFirebaseAsList()
@@ -64,7 +69,34 @@ class ChatsFragment : Fragment() {
 
 
 
-
+//        val searchView = binding.toolbar.menu.getItem(0).actionView as SearchView
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(p0: String?): Boolean {
+//                return true
+//            }
+//
+//
+//            override fun onQueryTextChange(p0: String?): Boolean {
+//                if (p0 == null || p0.trim().isEmpty()) {
+//                    resetSearch()
+//                    return false
+//                }
+//
+//                val none = ArrayList(userList)
+//                for (value in userList) {
+//                    if (!value.name.lowercase(Locale.getDefault())
+//                            .contains(p0.lowercase())
+//                    ) {
+//                        none.remove(value)
+//                    }
+//                }
+//                usersAdapter = UsersAdapter(none){ user: User, position: Int ->
+//                    listItemClicked(user, position)
+//                }
+//                binding.myRv.adapter = usersAdapter
+//                return false
+//            }
+//        })
 
         return binding.root
     }
@@ -77,4 +109,12 @@ class ChatsFragment : Fragment() {
         }
         requireActivity().startActivity(intent)
     }
+    fun resetSearch() {
+
+        usersAdapter = UsersAdapter(userList){ user: User, position: Int ->
+            listItemClicked(user, position)
+        }
+        binding.myRv.adapter = usersAdapter
+    }
+
 }
