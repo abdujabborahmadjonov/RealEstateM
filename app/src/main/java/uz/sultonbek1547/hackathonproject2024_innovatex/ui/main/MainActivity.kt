@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 import uz.sultonbek1547.hackathonproject2024_innovatex.R
 import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyConstants
 import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyConstants.deviceUser
@@ -24,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         MySharedPreference.init(this)
 
 
-        Toast.makeText(this, "${MySharedPreference.lastTimeUserEntered}", Toast.LENGTH_SHORT).show()
 
         // false means user have not logged in yet
         if (MySharedPreference.isUserAuthenticated != true) {
@@ -74,11 +76,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-//        if (MySharedPreference.isUserAuthenticated == true) {
-//            Toast.makeText(this, "${deviceUser}ewrtryu", Toast.LENGTH_SHORT).show()
-//            deviceUser.lastSeen = SimpleDateFormat("dd.MM.yyyy HH::MM").format(Date())
-//            deviceUser.let { MyFirebaseService().postUser(it) }
-//        }
+        if (MySharedPreference.isUserAuthenticated == true) {
+            CoroutineScope(IO).launch {
+                MySharedPreference.user = MySharedPreference.user?.id?.let {
+                    MyFirebaseService().getUserById(
+                        it
+                    )
+                }
+            }
+            Toast.makeText(this, "${deviceUser.lastSeen}  TIME", Toast.LENGTH_SHORT).show()
+            deviceUser.lastSeen = SimpleDateFormat("dd.MM.yyyy HH:MM").format(Date())
+            deviceUser.let { MyFirebaseService().updateUser(it) }
+        }
 
     }
 }
