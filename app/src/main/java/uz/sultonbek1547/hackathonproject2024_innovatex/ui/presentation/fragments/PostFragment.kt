@@ -35,6 +35,7 @@ import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.Random
 import java.util.UUID
 
 
@@ -131,7 +132,8 @@ class PostFragment : Fragment() {
                                 bookCategory,
                                 bookDescription,
                                 currentDateTime,
-                                MySharedPreference.user!!.gender
+                                MySharedPreference.user!!.gender,
+                                "${kotlin.random.Random.nextInt(19,96).toInt()} odam yoqtirdi"
                             )
                         )
                     }

@@ -13,8 +13,9 @@ data class Book(
     val category: String = "",
     val description: String = "",
     val productPostedDataAndTime: String = "",
-    var userGender: String,
+    var userGender: String = "",
+    var randomLiked:String = ""
 ) : Serializable {
     // No-argument constructor
-    constructor() : this("", "", "", "", "", "", "", "", "", "","")
+    constructor() : this("", "", "", "", "", "", "", "", "", "","","")
 }
