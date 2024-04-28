@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.text.isDigitsOnly
 import androidx.core.widget.addTextChangedListener
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -20,6 +19,7 @@ import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyConstants.TYPE_TEXT
@@ -45,8 +45,9 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var chatAdapter: ChatAdapter
     private lateinit var receiverId: String
     private lateinit var receiverName: String
+    private var receiver: User? = User()
     private lateinit var sender: User
-    private  var book: Book? = Book()
+    private var book: Book? = Book()
 
     //private lateinit var chatAdapter: ChatAdapter
 
@@ -54,11 +55,14 @@ class ChatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
         sender = MySharedPreference.user!!
         receiverId = intent?.getStringExtra("userId").toString()
         receiverName = intent?.getStringExtra("userName").toString()
-       book = intent?.getSerializableExtra("book") as Book?
-
+        book = intent?.getSerializableExtra("book") as Book?
+        CoroutineScope(IO).launch {
+            receiver = MyFirebaseService().getUserById(receiverId)
+        }
 
         database = FirebaseDatabase.getInstance()
         reference =
@@ -80,17 +84,21 @@ class ChatActivity : AppCompatActivity() {
         binding.toolbar.setNavigationOnClickListener {
             finish()
         }
+
+
+
     }
 
     private fun setUpUI() {
         // Set up UI components
         binding.tvUserName.text = receiverName
+
         binding.btnSend.visibility = View.GONE
         binding.edtMessage.isActivated = true
         binding.edtMessage.isPressed = true
         binding.edtMessage.requestFocus()
 
-        if (book != null){
+        if (book != null) {
             binding.tvBookItemName.text = book!!.name
             binding.tvBookItemAuthor.text = book!!.author
 
@@ -103,7 +111,7 @@ class ChatActivity : AppCompatActivity() {
 
                     }
                 })
-        }else{
+        } else {
 
             binding.bookItemContainer.visibility = View.GONE
         }
@@ -133,7 +141,6 @@ class ChatActivity : AppCompatActivity() {
                 if (snapshot.exists()) {
                     // The reference exists
                     getMessageList()
-                    Toast.makeText(this@ChatActivity, "Exists", Toast.LENGTH_SHORT).show()
                 } else {
                     // The reference does not exist
                     reference = database.getReference("app_chats")
@@ -176,6 +183,8 @@ class ChatActivity : AppCompatActivity() {
                 binding.edtMessage.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
             }
         })
+
+
 
     }
 

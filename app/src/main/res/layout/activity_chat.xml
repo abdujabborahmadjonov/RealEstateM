@@ -79,7 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="last seen at 16:41"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:paddingStart="5dp"
                     android:textColor="#80FFFFFF"
                     android:textSize="16sp" />

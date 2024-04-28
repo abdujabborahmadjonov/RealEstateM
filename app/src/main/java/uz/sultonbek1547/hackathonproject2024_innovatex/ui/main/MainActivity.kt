@@ -84,7 +84,6 @@ class MainActivity : AppCompatActivity() {
                     )
                 }
             }
-            Toast.makeText(this, "${deviceUser.lastSeen}  TIME", Toast.LENGTH_SHORT).show()
             deviceUser.lastSeen = SimpleDateFormat("dd.MM.yyyy HH:MM").format(Date())
             deviceUser.let { MyFirebaseService().updateUser(it) }
         }

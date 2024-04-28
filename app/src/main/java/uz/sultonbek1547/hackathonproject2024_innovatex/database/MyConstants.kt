@@ -12,6 +12,23 @@ object MyConstants {
     var TYPE_TEXT = "text"
     var screenLengthItem = 1
     var chatReference: DatabaseReference? = null
+     val bookCategoryList = arrayListOf(
+        "Badiiy adabiyotlar",
+        "Psixologiya va shaxsiy rivojlanish",
+        "Biznes kitoblar",
+        "Bolalar adabiyoti",
+        "IT sohasiga oid kitoblar",
+        "Chet tilini organish",
+        "Ilm-fan va darsliklar",
+        "Abituriyentlar uchun kitoblar",
+        "Detektiv",
+        "Fantastika",
+        "Siyosat",
+        "Biografiya",
+        "Ingliz tilidagi kitoblar",
+        "Rus tilidagi kitoblar",
+        "Nemis tilidagi kitoblar",
+    )
 
     var bookPoster = User()
 

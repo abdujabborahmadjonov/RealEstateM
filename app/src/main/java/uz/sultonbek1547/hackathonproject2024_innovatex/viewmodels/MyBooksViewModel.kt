@@ -15,7 +15,7 @@ class MyBooksViewModel(private val myRemoteRepository: MyRemoteRepository) : Vie
         loadProducts()
     }
 
-    private fun loadProducts() {
+     fun loadProducts() {
         viewModelScope.launch {
             productList.value = myRemoteRepository.getAllBooks().value
             myProductList.value = myRemoteRepository.getMyBooks().value
