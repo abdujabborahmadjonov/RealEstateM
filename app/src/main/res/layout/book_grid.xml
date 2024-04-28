@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor="#0078909C"
+        app:cardElevation="6dp">
+
+        <FrameLayout
+            android:layout_width="150dp"
+            android:layout_height="220dp"
+            android:gravity="center"
+            android:background="@drawable/ripple_rectangle_r6"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="220dp"
+                android:scaleType="fitXY"
+                android:layout_height="270dp"
+                android:layout_gravity="center"
+                android:src="@drawable/book1" />
+
+            <TextView
+                android:id="@+id/tv_book_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The book of names"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/gilroy_semibold"
+                android:background="@drawable/bacground_border"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                tools:ignore="RtlCompat" />
+
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

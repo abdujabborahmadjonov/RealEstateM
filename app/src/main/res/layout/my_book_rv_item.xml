@@ -1,101 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="3dp"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="#EDFAFF"
     android:clickable="true"
     android:focusable="true"
-    android:id="@+id/card_view"
-    android:backgroundTint="#EDFAFF"
     android:foreground="?selectableItemBackground"
+    app:cardCornerRadius="3dp"
     app:cardElevation="1dp"
-    android:layout_height="wrap_content"
     app:cardUseCompatPadding="true">
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="start">
+        android:gravity="start"
+        android:orientation="vertical">
 
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="130dp"
             android:orientation="horizontal"
-            android:paddingBottom="10dp"
+            android:paddingStart="10dp"
             android:paddingTop="10dp"
             android:paddingEnd="10dp"
-            android:paddingStart="10dp"
-            android:layout_height="130dp">
+            android:paddingBottom="10dp">
 
 
             <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
-                app:cardCornerRadius="5dp"
-                android:layout_marginEnd="10dp">
+                android:layout_marginEnd="10dp"
+                app:cardCornerRadius="5dp">
 
                 <ImageView
                     android:id="@+id/item_image"
                     android:layout_width="100dp"
-                    android:src="@drawable/girl_carton_image"
+                    android:layout_height="match_parent"
                     android:background="@color/gray"
                     android:scaleType="fitXY"
-                    android:layout_height="match_parent" />
+                    android:src="@drawable/girl_carton_image" />
 
                 <ProgressBar
                     android:id="@+id/progress_bar"
-                    android:visibility="visible"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:indeterminate="true"
                     android:indeterminateTint="#a3c9a8"
-                    android:layout_height="wrap_content" />
+                    android:visibility="visible" />
             </androidx.cardview.widget.CardView>
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5dp"
+                android:orientation="vertical">
 
-                <TextView
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:id="@+id/tv_book_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Graf Monte Kristo"
-                    android:layout_gravity="start"
-                    android:textSize="18sp"
-                    android:textColor="@color/dark_orange"
-                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/tv_book_name"
-                    app:layout_constraintTop_toBottomOf="@id/tv_book_name"
-                    android:id="@+id/tv_book_author"
+                    <TextView
+                        android:id="@+id/tv_book_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:fontFamily="@font/gilroy_bold"
+                        android:text="Graf Monte Kristo"
+                        android:textColor="@color/dark_orange"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="17dp"
+                        android:layout_height="17dp"
+                        android:paddingStart="3dp"
+                        android:src="@drawable/icon_author" />
+
+                    <TextView
+                        android:id="@+id/tv_book_author"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:text="Aleksandr Dyuma"
+                        android:textColor="@color/gray"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/tv_book_name"
+                        app:layout_constraintTop_toBottomOf="@id/tv_book_name" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:text="Aleksandr Dyuma"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
+                    android:orientation="horizontal">
 
-                <TextView
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:id="@+id/tv_user_posted_date"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Mart 21, 16:46"
-                    android:gravity="end"
-                    android:textSize="13sp"
-                    android:textColor="@color/gray" />
+                    <ImageView
+                        android:layout_width="@dimen/_20dp"
+                        android:layout_height="20dp"
+                        android:paddingVertical="3dp"
+                        android:src="@drawable/icon_heart" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+
+                        android:id="@+id/rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:text="128 kishi ko'rdi"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/tv_book_name"
+                        app:layout_constraintTop_toBottomOf="@id/tv_book_name" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_user_posted_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="Mart 21, 16:46"
+                        android:textColor="@color/gray"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
 

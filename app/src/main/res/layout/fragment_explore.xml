@@ -1,58 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.presentation.bottom_nav_fragments.ExploreFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/dark_orange"
+        android:elevation="1dp"
+        android:fitsSystemWindows="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu_search"
+        app:title="  Barcha kitoblar"
+        app:titleTextColor="@color/white" />
+
     <ProgressBar
         android:id="@+id/progress_bar"
-        android:visibility="gone"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:indeterminateTint="@color/colorPrimary8"
-        android:layout_height="wrap_content" />
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/container_empty"
         android:layout_width="match_parent"
-        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:layout_gravity="center"
+        android:orientation="vertical"
         android:paddingBottom="100dp"
-        android:orientation="vertical">
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_launcher_background"
             android:layout_gravity="center"
             android:layout_margin="30dp"
+            android:src="@drawable/ic_launcher_background"
             app:tint="@color/colorPrimary8" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:lineSpacingExtra="5dp"
-            android:text="E'lonlar mavjud emas"
             android:paddingStart="50dp"
             android:paddingEnd="50dp"
-            android:layout_gravity="center"
-            android:textAlignment="center"
             android:paddingBottom="15dp"
+            android:text="E'lonlar mavjud emas"
+            android:textAlignment="center"
             android:textColor="@color/orange_active"
             android:textSize="22sp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:layout_width="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:id="@+id/swiperefresh"
+    app:layout_constraintTop_toBottomOf="@+id/toolbar"
+    android:layout_height="@dimen/_0dp">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:clickable="true"
-        tools:listitem="@layout/book_rv_item"
+        android:focusable="true"
+        android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:focusable="true" />
+
+        tools:listitem="@layout/book_rv_item" />
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,6 +32,9 @@ class MyBooksRecyclerviewAdapter(val function: (Book, ImageView, TextView, TextV
                 tvBookName.text = book.name
                 tvBookAuthor.text = book.author
                 tvUserPostedDate.text = book.productPostedDataAndTime
+                rate.text = "${kotlin.random.Random.nextInt(1,1000).toInt()} odam yoqtirdi"
+
+
 
             }
             itemRvBinding.cardView.setOnClickListener {

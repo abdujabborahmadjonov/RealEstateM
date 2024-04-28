@@ -187,11 +187,11 @@ class SignUpTwoFragment : Fragment(), ConnectionDialog.ConnectionDialogClicked {
                 activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                 Toast.makeText(context, "Xush kelibsiz", Toast.LENGTH_LONG).show()
                 MySharedPreference.isUserAuthenticated = true
-                MySharedPreference.user = user
+                startActivity(Intent(requireContext(),MainActivity::class.java))
 
-                startActivity(Intent(requireContext(), MainActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                })
+//                startActivity(Intent(requireContext(), MainActivity::class.java).apply {
+//                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//                })
             }
 
         } catch (e: Exception) {

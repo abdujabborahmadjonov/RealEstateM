@@ -23,7 +23,7 @@
             android:layout_height="100dp"
             android:backgroundTint="@color/white"
             android:paddingTop="5dp"
-            android:src="@drawable/ic_arrow_down" />
+            android:src="@drawable/icon_books_filled" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -60,19 +60,18 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
         android:background="@drawable/rectangle_r10_stroke"
         android:fontFamily="@font/gilroy_regular"
         android:hint="Telefon raqam"
         android:inputType="phone|numberSigned"
         android:paddingStart="120dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:textColorHint="@color/gray_text_color"
         app:layout_constraintBottom_toTopOf="@+id/password_et"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-         />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <TextView
@@ -132,19 +131,18 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
         android:background="@drawable/rectangle_r10_stroke"
         android:fontFamily="@font/gilroy_regular"
         android:hint="Parol"
         android:inputType="textPassword"
         android:paddingStart="50dp"
+        android:paddingTop="20dp"
         android:paddingEnd="20dp"
+        android:paddingBottom="20dp"
         android:textColorHint="@color/gray_text_color"
         app:layout_constraintBottom_toTopOf="@+id/login_forgot_password_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/login_ic_key"
@@ -203,10 +201,10 @@
         android:background="@drawable/ripple_rectangle_r6"
         android:clickable="true"
         android:focusable="true"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
         android:fontFamily="@font/gilroy_medium"
         android:gravity="center"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         android:text="Ro'yhatdan o'tish"
         android:textColor="@color/dark_orange"
         android:textSize="18sp"
@@ -224,25 +222,25 @@
         app:layout_constraintEnd_toEndOf="@+id/login_sign_up_btn"
         app:layout_constraintStart_toStartOf="@+id/login_sign_up_btn">
 
-        <TextView
+        <ImageView
             android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kirishni xohlaysizmi"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
+            android:src="@drawable/innovatex"
             android:textColor="@color/dark_orange" />
 
         <TextView
             android:id="@+id/login_log_on_guest_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:clickable="true"
-            android:focusable="true"
-            android:fontFamily="@font/gilroy_bold"
-            android:text="Mehmon sifatida kirish"
+            android:focusable="true"            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/gilroy_medium"
             android:foreground="?selectableItemBackground"
+            android:text="Developed by InnovateX"
             android:textColor="@color/dark_orange"
-            android:textSize="16sp"
+            android:textSize="20sp"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 

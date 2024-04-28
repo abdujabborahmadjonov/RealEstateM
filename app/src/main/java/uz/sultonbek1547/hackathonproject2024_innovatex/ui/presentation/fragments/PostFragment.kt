@@ -1,8 +1,12 @@
 package uz.sultonbek1547.hackathonproject2024_innovatex.ui.presentation.fragments
 
 import android.app.ProgressDialog
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +30,8 @@ import uz.sultonbek1547.hackathonproject2024_innovatex.database.MyFirebaseServic
 import uz.sultonbek1547.hackathonproject2024_innovatex.databinding.FragmentPostBinding
 import uz.sultonbek1547.hackathonproject2024_innovatex.models.Book
 import uz.sultonbek1547.hackathonproject2024_innovatex.utils.MySharedPreference
+import java.io.File
+import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -181,13 +187,17 @@ class PostFragment : Fragment() {
         ActivityResultContracts.GetMultipleContents()
     ) { images: List<Uri>? ->
         images ?: return@registerForActivityResult
-        images.forEachIndexed { index, uri ->
+
+        val compressedImages = compressImages(images)
+
+        compressedImages.forEachIndexed { index, uri ->
             if (index < 1) {
                 addImageViewToSelectedImagesContainer(uri)
                 imageUri = uri
             }
         }
-        if (images.isNotEmpty()) {
+
+        if (compressedImages.isNotEmpty()) {
             binding.onlyViewTvSelectImageContainer.visibility = View.INVISIBLE
             isImageSelected = true
         } else {
@@ -195,6 +205,63 @@ class PostFragment : Fragment() {
         }
     }
 
+    private fun compressImages(images: List<Uri>): List<Uri> {
+        val compressedUris = mutableListOf<Uri>()
+        for (imageUri in images) {
+            val compressedUri = compressImage(imageUri)
+            if (compressedUri != null) {
+                compressedUris.add(compressedUri)
+            }
+        }
+        return compressedUris
+    }
+
+    private fun compressImage(imageUri: Uri): Uri? {
+        try {
+            val context = requireContext() // Assuming this is within an Activity or Fragment
+
+            // Get the original image size (optional for reference)
+            val originalSize = activity?.contentResolver?.openInputStream(imageUri)?.available() ?: 0
+
+            // Create a new, compressed bitmap
+            val options = BitmapFactory.Options()
+            options.inSampleSize = calculateInSampleSize(context, imageUri, 400, 500) // Target dimensions
+            val bitmap = BitmapFactory.decodeStream(activity?.contentResolver?.openInputStream(imageUri), null, options)
+
+            // Create a temporary file for the compressed image
+            val tempFile = File(context.cacheDir, "compressed_image_${System.currentTimeMillis()}.jpg")
+            val outputStream = FileOutputStream(tempFile)
+
+            // Compress the bitmap and write it to the temporary file
+            bitmap?.compress(Bitmap.CompressFormat.JPEG, 50, outputStream) // Adjust quality (0-100)
+            outputStream.close()
+
+            // Return the Uri of the compressed image
+            return Uri.fromFile(tempFile)
+        } catch (e: Exception) {
+            Log.e("ImageCompression", "Error compressing image: $e")
+            return null
+        }
+    }
+
+    // Utility function to calculate inSampleSize for efficient downscaling
+    private fun calculateInSampleSize(context: Context, imageUri: Uri, reqWidth: Int, reqHeight: Int): Int {
+        val options = BitmapFactory.Options()
+        options.inJustDecodeBounds = true
+        BitmapFactory.decodeStream(context.contentResolver.openInputStream(imageUri), null, options)
+
+        val (height, width) = options.outHeight to options.outWidth
+        var inSampleSize = 1
+
+        if (height > reqHeight || width > reqWidth) {
+            val halfHeight = height / 2
+            val halfWidth = width / 2
+            while (halfHeight / inSampleSize >= reqHeight && halfWidth / inSampleSize >= reqWidth) {
+                inSampleSize *= 2
+            }
+        }
+        return inSampleSize
+    }
     private fun isBookDataFull(): Boolean {
         if (!isImageSelected) {
             Toast.makeText(context, "Kitob rasmlarini yuklang", Toast.LENGTH_SHORT).show()
